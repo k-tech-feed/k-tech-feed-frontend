@@ -1,0 +1,17 @@
+name: Frontend CI/CD
+run-name: ${{ github.actor }}가 실행함
+on:
+  push:
+    branches:
+      - main
+jobs:
+  lint-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+          with:
+            node-version: '18'
+      - run: npm i -g yarn
+      - run: yarn
+      - run: yarn lint
