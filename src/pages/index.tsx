@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Button } from '@nextui-org/react';
+import { Button } from '@/components';
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
       </Head>
       <main>
         <h1>k-tech-feed</h1>
-        <Button>안녕하세요</Button>
+        <Button>클릭하기</Button>
       </main>
     </>
   );
