@@ -1,4 +1,4 @@
-name: Frontend CI/CD
+name: Frontend CI
 run-name: ${{ github.actor }}가 실행함
 on:
   push:
