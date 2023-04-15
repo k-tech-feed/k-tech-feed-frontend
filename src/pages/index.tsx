@@ -11,7 +11,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1>k-tech-feed</h1>
+        <h1 style={{ fontWeight: 600 }}>k-tech-feed</h1>
         <Button>클릭하기</Button>
       </main>
     </>
