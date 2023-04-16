@@ -1,5 +1,4 @@
-import { styled, Input, VariantProps, CSS } from '@nextui-org/react';
-import { HTMLAttributes } from 'react';
+import { Input, CSS } from '@nextui-org/react';
 import { IconSearch } from 'tabler-icons';
 
 interface Props {
