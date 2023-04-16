@@ -13,3 +13,6 @@ Dockerfile
 .lighthouserc.js
 .lighthouseci
 lhci_reports
+.yarn
+.pnp.cjs
+.pnp.loader.mjs
