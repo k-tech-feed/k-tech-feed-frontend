@@ -37,7 +37,7 @@
         "pathGroups": [
           // react, next 모듈은 외부 모듈 중 최상단에 두도록
           {
-            "pattern": "{react,next/*}",
+            "pattern": "{react,next/**}",
             "group": "builtin",
             "position": "after"
           },

@@ -1,10 +1,10 @@
 import type { AppProps } from 'next/app';
+import localFont from 'next/font/local';
 import Head from 'next/head';
 
 import { NextUIProvider, useSSR } from '@nextui-org/react';
 
 import { PageLayout } from '@/components';
-import localFont from 'next/font/local';
 
 const fonts = localFont({
   src: [
