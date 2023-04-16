@@ -3480,6 +3480,7 @@ __metadata:
     react: 18.2.0
     react-dom: 18.2.0
     sharp: ^0.32.0
+    tabler-icons: ^1.35.0
     typescript: 5.0.4
   languageName: unknown
   linkType: soft
@@ -4721,6 +4722,16 @@ __metadata:
     "@pkgr/utils": ^2.3.1
     tslib: ^2.5.0
   checksum: 8a9560e5d8f3d94dc3cf5f7b9c83490ffa30d320093560a37b88f59483040771fd1750e76b9939abfbb1b5a23fd6dfbae77f6b338abffe7cae7329cd9b9bb86b
+  languageName: node
+  linkType: hard
+
+"tabler-icons@npm:^1.35.0":
+  version: 1.35.0
+  resolution: "tabler-icons@npm:1.35.0"
+  peerDependencies:
+    react: ^16.13.1
+    react-dom: ^16.13.1
+  checksum: 860ec7b866794eca6028202c881f370d7521ef698405fe4251e07e74ff9b5f4e6994108cd35138f6b0ce3fa6dec3a91c2f2600a56751a3c7657ae1cd8e409645
   languageName: node
   linkType: hard
 
