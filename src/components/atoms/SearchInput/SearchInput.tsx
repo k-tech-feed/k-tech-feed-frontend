@@ -1,4 +1,5 @@
-import { Input, CSS } from '@nextui-org/react';
+import { type CSS, Input } from '@nextui-org/react';
+
 import { IconSearch } from 'tabler-icons';
 
 interface Props {

@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import { CSS, styled, Text } from '@nextui-org/react';
+
+import { type CSS, Text, styled } from '@nextui-org/react';
 
 interface Props {
   css?: CSS;

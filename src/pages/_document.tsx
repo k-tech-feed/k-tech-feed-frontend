@@ -1,5 +1,6 @@
-import React from 'react';
-import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
+import Document, { type DocumentContext, Head, Html, Main, NextScript } from 'next/document';
+import { Children } from 'react';
+
 import { CssBaseline } from '@nextui-org/react';
 
 class MyDocument extends Document {
@@ -7,7 +8,7 @@ class MyDocument extends Document {
     const initialProps = await Document.getInitialProps(ctx);
     return {
       ...initialProps,
-      styles: React.Children.toArray([initialProps.styles]),
+      styles: Children.toArray([initialProps.styles]),
     };
   }
 

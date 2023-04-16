@@ -1,4 +1,5 @@
 import type { AppProps } from 'next/app';
+
 import { NextUIProvider } from '@nextui-org/react';
 
 import localFont from 'next/font/local';

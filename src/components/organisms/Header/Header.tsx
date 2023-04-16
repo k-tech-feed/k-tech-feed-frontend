@@ -1,5 +1,6 @@
-import { Logo, SearchInput } from '@/components';
 import { styled } from '@nextui-org/react';
+
+import { Logo, SearchInput } from '@/components';
 
 const Header = () => {
   return (
