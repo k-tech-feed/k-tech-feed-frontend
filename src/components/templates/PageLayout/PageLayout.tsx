@@ -1,0 +1,28 @@
+import { type PropsWithChildren } from 'react';
+
+import { styled } from '@nextui-org/react';
+
+import { ContentLayout, Header } from '@/components';
+
+interface Props extends PropsWithChildren {
+  className: string;
+}
+
+const PageLayout = ({ children, className }: Props) => {
+  return (
+    <PageWrapper className={className}>
+      <Header />
+      <ContentLayout>{children}</ContentLayout>
+    </PageWrapper>
+  );
+};
+
+export default PageLayout;
+
+const PageWrapper = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  width: '100%',
+  minHeight: '100vh',
+  position: 'relative',
+});

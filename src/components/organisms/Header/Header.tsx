@@ -4,7 +4,7 @@ import { Logo, SearchInput } from '@/components';
 
 const Header = () => {
   return (
-    <HeaderWrapper>
+    <HeaderWrapper id="header">
       <Logo
         css={{
           position: 'absolute',

@@ -17,7 +17,6 @@ const SearchInput = ({ ...rest }: Props) => {
       contentLeft={<IconSearch color="gray" />}
       css={{
         width: '200px',
-        fontSize: '$lg',
         display: 'flex',
         justifyContent: 'center',
         '@sm': {
