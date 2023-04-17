@@ -4,7 +4,7 @@ import { Logo, SearchInput } from '@/components';
 
 const Header = () => {
   return (
-    <Navbar variant="sticky" css={{ width: '100vw' }}>
+    <Navbar variant="sticky" css={{ width: '100vw', zIndex: 1000 }}>
       <Navbar.Brand>
         <Logo
           css={{
