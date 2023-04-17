@@ -35,6 +35,30 @@ const StyledBadge = styled(NextBadge, {
           color: '$blue600',
         },
       },
+      yellow: {
+        '*': {
+          backgroundColor: '$yellow200',
+          color: '$yellow600',
+        },
+      },
+      red: {
+        '*': {
+          backgroundColor: '$red200',
+          color: '$red600',
+        },
+      },
+      cyan: {
+        '*': {
+          backgroundColor: '$cyan200',
+          color: '$cyan600',
+        },
+      },
+      pink: {
+        '*': {
+          backgroundColor: '$pink200',
+          color: '$pink600',
+        },
+      },
     },
   },
   height: 'fit-content',

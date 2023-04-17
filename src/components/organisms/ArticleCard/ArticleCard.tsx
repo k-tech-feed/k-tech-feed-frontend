@@ -2,6 +2,7 @@ import { Text } from '@nextui-org/react';
 
 import { Badge, CompanyPubdateBadge } from '@/components';
 import { type Article } from '@/types/data';
+import { CategoryColor } from '@/utils/categoryColors';
 
 import {
   ArticleCardWrapper,
@@ -47,7 +48,7 @@ const ArticleCard = ({ article }: Props) => {
       </ArticleContent>
       <BadgeWrapper>
         {categories.map(({ name, id }) => (
-          <Badge key={id} color="green">
+          <Badge key={id} color={CategoryColor(name)}>
             # {name}
           </Badge>
         ))}
