@@ -10,6 +10,7 @@ export { default as CompanyPubdateBadge } from './molecules/CompanyPubdateBadge/
 // organisms
 export { default as Header } from './organisms/Header/Header';
 export { default as ArticleCard } from './organisms/ArticleCard/ArticleCard';
+export { default as TrendArticles } from './organisms/TrendArticles/TrendArticles';
 
 // templates
 export { default as ContentLayout } from './templates/ContentLayout/ContentLayout';

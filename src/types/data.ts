@@ -17,4 +17,4 @@ interface Article {
   categories: Category[];
 }
 
-export type { Article, Company };
+export type { Article, Company, Category };

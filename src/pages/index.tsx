@@ -1,9 +1,19 @@
-import { ArticleSection } from '@/components';
+import { styled } from '@nextui-org/react';
+
+import { ArticleSection, TrendArticles } from '@/components';
 
 export default function Home() {
   return (
-    <div>
+    <PageWrapper>
       <ArticleSection />
-    </div>
+      <TrendArticles />
+    </PageWrapper>
   );
 }
+
+const PageWrapper = styled('div', {
+  width: '100%',
+  display: 'flex',
+  gap: '32px',
+  position: 'relative',
+});
