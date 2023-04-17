@@ -1,10 +1,12 @@
 import type { AppProps } from 'next/app';
 import localFont from 'next/font/local';
 import Head from 'next/head';
+import { useState } from 'react';
 
 import { NextUIProvider, useSSR } from '@nextui-org/react';
 
 import { PageLayout } from '@/components';
+import { Hydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const fonts = localFont({
   src: [
@@ -38,6 +40,7 @@ const fonts = localFont({
 
 export default function App({ Component, pageProps }: AppProps) {
   const { isBrowser } = useSSR();
+  const [queryClient] = useState(() => new QueryClient());
 
   return (
     isBrowser && (
@@ -48,9 +51,13 @@ export default function App({ Component, pageProps }: AppProps) {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <PageLayout className={fonts.className}>
-          <Component {...pageProps} />
-        </PageLayout>
+        <QueryClientProvider client={queryClient}>
+          <Hydrate state={pageProps.dehydratedState}>
+            <PageLayout className={fonts.className}>
+              <Component {...pageProps} />
+            </PageLayout>
+          </Hydrate>
+        </QueryClientProvider>
       </NextUIProvider>
     )
   );

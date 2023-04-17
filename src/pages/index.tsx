@@ -1,10 +1,9 @@
-import { ArticleCard } from '@/components';
+import { ArticleSection } from '@/components';
 
 export default function Home() {
   return (
     <div>
-      <ArticleCard />
-      <ArticleCard />
+      <ArticleSection />
     </div>
   );
 }

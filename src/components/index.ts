@@ -14,3 +14,6 @@ export { default as ArticleCard } from './organisms/ArticleCard/ArticleCard';
 // templates
 export { default as ContentLayout } from './templates/ContentLayout/ContentLayout';
 export { default as PageLayout } from './templates/PageLayout/PageLayout';
+export { default as ArticleSection } from './templates/ArticleSection/ArticleSection';
+export { default as ArticleLoading } from './templates/ArticleLoading/ArticleLoading';
+export { default as ArticleContentSection } from './templates/ArticleContentSection/ArticleContentSection';

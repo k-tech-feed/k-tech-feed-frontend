@@ -1,15 +1,17 @@
 import { Text, styled } from '@nextui-org/react';
 
 import { CompanyBadge } from '@/components';
-import { type CompanyPubdate } from '@/types/data';
+import { type Article, type Company } from '@/types/data';
 import dateTimeFormat from '@/utils/dateTime';
 
-interface Props extends CompanyPubdate {}
+interface Props extends Pick<Article, 'pubDate'> {
+  company: Company;
+}
 
-const CompanyPubdateBadge = ({ companyName, pubDate }: Props) => {
+const CompanyPubdateBadge = ({ company, pubDate }: Props) => {
   return (
     <CompanyPubDateWrapper>
-      <CompanyBadge />
+      <CompanyBadge company={company} />
       <Text size={14} color="$gray800">
         &nbsp;· {dateTimeFormat(pubDate)}
       </Text>

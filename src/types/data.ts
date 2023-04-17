@@ -1,8 +1,20 @@
-interface CompanyPubdate {
-  companyName: string;
-  pubDate: string;
+interface Company {
+  name: string;
+  imgUrl: string;
 }
 
-interface Article extends CompanyPubdate {}
+interface Category {
+  id: number;
+  name: string;
+}
 
-export type { Article, CompanyPubdate };
+interface Article {
+  id: number;
+  title: string;
+  description: string;
+  company: Company;
+  pubDate: string;
+  categories: Category[];
+}
+
+export type { Article, Company };
