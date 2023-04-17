@@ -14,6 +14,9 @@ const ArticleCardWrapper = styled('article', {
   '&:not(:last-child)': {
     borderBottom: '1px solid $gray300',
   },
+  '@md': {
+    minWidth: '680px',
+  },
 });
 
 const BadgeWrapper = styled('div', {

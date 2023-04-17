@@ -1,26 +1,43 @@
 import { styled } from '@nextui-org/react';
 
 import { ArticleSection, TrendArticles, TrendHashTags, TrendSelect } from '@/components';
+import { useMediaQuery } from 'react-responsive';
 
 export default function Home() {
+  const isDesktop = useMediaQuery({ query: '(min-width: 1280px)' });
+
   return (
     <PageWrapper>
+      {!isDesktop && (
+        <PageAside>
+          <TrendSelect />
+          <TrendArticles isMobile={!isDesktop} />
+          <TrendHashTags />
+        </PageAside>
+      )}
       <ArticleSection />
-      <PageAside>
-        <TrendSelect />
-        <TrendArticles />
-        <TrendHashTags />
-      </PageAside>
+      {isDesktop && (
+        <PageAside>
+          <TrendSelect />
+          <TrendArticles isMobile={!isDesktop} />
+          <TrendHashTags />
+        </PageAside>
+      )}
     </PageWrapper>
   );
 }
 
 const PageWrapper = styled('div', {
-  width: '100%',
   display: 'flex',
   gap: '60px',
   position: 'relative',
   height: '100%',
+  flexDirection: 'column',
+  width: '680px',
+  '@md': {
+    width: '100%',
+    flexDirection: 'row',
+  },
 });
 
 const PageAside = styled('div', {
@@ -28,7 +45,11 @@ const PageAside = styled('div', {
   flexDirection: 'column',
   height: 'max-content',
   gap: '32px',
-  position: 'sticky',
-  top: '76px',
-  right: '0',
+  width: '100%',
+  '@md': {
+    position: 'sticky',
+    top: '76px',
+    right: '0',
+    width: '320px',
+  },
 });

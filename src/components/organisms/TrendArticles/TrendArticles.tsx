@@ -4,7 +4,11 @@ import { Loading, Text, styled } from '@nextui-org/react';
 
 import TrendArticlesContent from './TrendArticlesContent';
 
-const TrendArticles = () => {
+interface Props {
+  isMobile: boolean;
+}
+
+const TrendArticles = ({ isMobile }: Props) => {
   return (
     <TrendArticlesWrapper>
       <Text size={20} weight="bold">
@@ -17,7 +21,7 @@ const TrendArticles = () => {
           </LoadingWrapper>
         }
       >
-        <TrendArticlesContent />
+        <TrendArticlesContent isMobile={isMobile} />
       </Suspense>
     </TrendArticlesWrapper>
   );
@@ -29,8 +33,7 @@ const TrendArticlesWrapper = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   gap: '20px',
-  width: '320px',
-  minHeight: '300px',
+  width: '100%',
   position: 'relative',
 });
 

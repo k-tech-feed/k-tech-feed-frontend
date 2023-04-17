@@ -21,7 +21,7 @@ const TrendHashTagsContent = () => {
 export default TrendHashTagsContent;
 
 const ContentWrapper = styled('div', {
-  width: '320px',
+  width: '100%',
   display: 'flex',
   flexWrap: 'wrap',
   gap: '8px',

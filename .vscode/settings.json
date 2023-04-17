@@ -16,6 +16,7 @@
   "files.eol": "\n",
   "eslint.codeActionsOnSave.mode": "problems",
   "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
     "source.fixAll.format": true
   }
 }

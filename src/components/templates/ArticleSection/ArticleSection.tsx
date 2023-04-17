@@ -21,5 +21,5 @@ export default ArticeSection;
 
 const ArticleSectionWrapper = styled('div', {
   position: 'relative',
-  width: '680px',
+  width: '100%',
 });

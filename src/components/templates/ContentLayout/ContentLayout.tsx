@@ -12,9 +12,6 @@ export default ContentLayout;
 
 const ContentWrapper = styled('main', {
   height: '100%',
-  flexShrink: '0',
-  flexBasis: '1',
-  flexGrow: '1',
   display: 'flex',
   justifyContent: 'center',
   margin: '40px 32px',

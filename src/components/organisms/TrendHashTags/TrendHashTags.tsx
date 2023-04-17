@@ -28,8 +28,8 @@ export default TrendHashTags;
 const TrendHashTagsWrapper = styled('div', {
   display: 'flex',
   flexDirection: 'column',
+  width: '100%',
   gap: '20px',
-  minHeight: '300px',
 });
 
 const LoadingWrapper = styled('div', {

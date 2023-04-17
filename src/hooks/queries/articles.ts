@@ -13,13 +13,13 @@ const articleResponse = new Promise((resolve) => {
 const trendArticleResponse = new Promise((resolve) => {
   setTimeout(() => {
     resolve(mockArticles.slice(0, 3));
-  }, 2000);
+  }, 1000);
 });
 
 const trendHashTagsResponse = new Promise((resolve) => {
   setTimeout(() => {
     resolve(mockTrendHashTags);
-  }, 2000);
+  }, 1500);
 });
 
 const useArticlesQuery = () => {
