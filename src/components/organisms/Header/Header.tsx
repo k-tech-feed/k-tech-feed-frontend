@@ -1,30 +1,24 @@
-import { styled } from '@nextui-org/react';
+import { Navbar } from '@nextui-org/react';
 
 import { Logo, SearchInput } from '@/components';
 
 const Header = () => {
   return (
-    <HeaderWrapper id="header">
-      <Logo
-        css={{
-          position: 'absolute',
-          left: '20px',
-        }}
-      />
-      <SearchInput id="searchbar" aria-label="search" placeholder="검색" />
-    </HeaderWrapper>
+    <Navbar shouldHideOnScroll variant="sticky" css={{ width: '100vw' }}>
+      <Navbar.Brand>
+        <Logo
+          css={{
+            position: 'absolute',
+            left: '20px',
+          }}
+        />
+      </Navbar.Brand>
+      <Navbar.Content>
+        <SearchInput aria-label="search" placeholder="검색" />
+      </Navbar.Content>
+      <Navbar.Content />
+    </Navbar>
   );
 };
 
 export default Header;
-
-const HeaderWrapper = styled('header', {
-  width: '100%',
-  minWidth: '100vw',
-  borderBottom: '1px solid $gray100',
-  position: 'relative',
-  padding: '10px 20px',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-});
