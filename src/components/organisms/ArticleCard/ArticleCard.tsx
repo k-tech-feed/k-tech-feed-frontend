@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import { Text } from '@nextui-org/react';
 
 import { Badge, CompanyPubdateBadge } from '@/components';
@@ -44,7 +46,9 @@ const ArticleCard = ({ article }: Props) => {
             {description}
           </Text>
         </ArticleContentTexts>
-        <ArticleThumbnail src="/thumbnail.png" alt="thumbnail" width={180} height={120} />
+        <ArticleThumbnail>
+          <Image src="/thumbnail.png" alt="thumbnail" fill sizes="180px" />
+        </ArticleThumbnail>
       </ArticleContent>
       <BadgeWrapper>
         {categories.map(({ name, id }) => (

@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 import { styled } from '@nextui-org/react';
 
 const ArticleCardWrapper = styled('article', {
@@ -7,7 +5,6 @@ const ArticleCardWrapper = styled('article', {
   flexDirection: 'column',
   gap: '12px',
   width: '100%',
-  maxWidth: '680px',
   position: 'relative',
   padding: '32px 0',
   boxSizing: 'border-box',
@@ -15,6 +12,7 @@ const ArticleCardWrapper = styled('article', {
     borderBottom: '1px solid $gray300',
   },
   '@md': {
+    maxWidth: '680px',
     minWidth: '680px',
   },
 });
@@ -26,12 +24,24 @@ const BadgeWrapper = styled('div', {
 
 const ArticleContent = styled('div', {
   width: '100%',
-  display: 'flex',
+  display: 'grid',
   gap: '24px',
+  gridTemplateColumns: '1fr 80px',
+  '@md': {
+    gridTemplateColumns: '1fr 180px',
+  },
 });
 
-const ArticleThumbnail = styled(Image, {
+const ArticleThumbnail = styled('div', {
+  width: '80px',
+  height: '80px',
+  position: 'relative',
   borderRadius: '8px',
+  overflow: 'hidden',
+  '@sm': {
+    width: '180px',
+    height: '120px',
+  },
 });
 
 const ArticleContentTexts = styled('div', {
