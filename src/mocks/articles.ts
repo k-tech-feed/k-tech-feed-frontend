@@ -92,6 +92,15 @@ const mockTrendHashTags = [
   { id: 5, name: 'Java' },
   { id: 6, name: 'MySQL' },
   { id: 7, name: 'MSA' },
+  { id: 8, name: 'MSA' },
+  { id: 9, name: 'MSA' },
+  { id: 10, name: 'MSA' },
+  { id: 11, name: 'MSA' },
+  { id: 12, name: 'MSA' },
+  { id: 13, name: 'MSA' },
+  { id: 14, name: 'MSA' },
+  { id: 15, name: 'MSA' },
+  { id: 16, name: 'MSA' },
 ];
 
 export { mockArticles, mockTrendHashTags };

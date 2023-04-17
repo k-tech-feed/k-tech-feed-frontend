@@ -31,7 +31,7 @@ const TrendArticlesWrapper = styled('div', {
   gap: '20px',
   width: '320px',
   paddingTop: '24px',
-  height: '300px',
+  minHeight: '300px',
   position: 'relative',
 });
 

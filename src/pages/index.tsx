@@ -1,12 +1,15 @@
 import { styled } from '@nextui-org/react';
 
-import { ArticleSection, TrendArticles } from '@/components';
+import { ArticleSection, TrendArticles, TrendHashTags } from '@/components';
 
 export default function Home() {
   return (
     <PageWrapper>
       <ArticleSection />
-      <TrendArticles />
+      <PageAside>
+        <TrendArticles />
+        <TrendHashTags />
+      </PageAside>
     </PageWrapper>
   );
 }
@@ -14,6 +17,17 @@ export default function Home() {
 const PageWrapper = styled('div', {
   width: '100%',
   display: 'flex',
-  gap: '32px',
+  gap: '60px',
   position: 'relative',
+  height: '100%',
+});
+
+const PageAside = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  height: 'max-content',
+  gap: '32px',
+  position: 'sticky',
+  top: '76px',
+  right: '0',
 });
