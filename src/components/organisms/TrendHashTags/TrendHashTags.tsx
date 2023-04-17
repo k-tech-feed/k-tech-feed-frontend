@@ -13,7 +13,7 @@ const TrendHashTags = () => {
       <Suspense
         fallback={
           <LoadingWrapper>
-            <Loading />
+            <Loading type="spinner" />
           </LoadingWrapper>
         }
       >
@@ -38,4 +38,8 @@ const LoadingWrapper = styled('div', {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+  minHeight: '100px',
+  '@md': {
+    minHeight: '300px',
+  },
 });

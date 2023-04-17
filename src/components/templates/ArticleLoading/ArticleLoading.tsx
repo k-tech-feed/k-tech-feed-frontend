@@ -17,7 +17,7 @@ const ArticleLoading = () => {
               width: '100%',
             }}
           >
-            <Loading />
+            <Loading type="spinner" />
           </ArticleCardWrapper>
         );
       })}
