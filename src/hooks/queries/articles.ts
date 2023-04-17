@@ -1,6 +1,7 @@
+import { useQuery } from '@tanstack/react-query';
+
 import { mockArticles } from '@/mocks/articles';
 import { type Article } from '@/types/data';
-import { useQuery } from '@tanstack/react-query';
 
 // TODO: axios를 통한 비동기 호출로 바꾸기
 const articleResponse = new Promise((resolve) => {
