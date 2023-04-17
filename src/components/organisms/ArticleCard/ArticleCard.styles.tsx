@@ -27,7 +27,7 @@ const ArticleContent = styled('div', {
   display: 'grid',
   gap: '24px',
   gridTemplateColumns: '1fr 80px',
-  '@md': {
+  '@sm': {
     gridTemplateColumns: '1fr 180px',
   },
 });
