@@ -1,7 +1,7 @@
 import { styled } from '@nextui-org/react';
+import { useMediaQuery } from 'react-responsive';
 
 import { ArticleSection, TrendArticles, TrendHashTags, TrendSelect } from '@/components';
-import { useMediaQuery } from 'react-responsive';
 
 export default function Home() {
   const isDesktop = useMediaQuery({ query: '(min-width: 1280px)' });
