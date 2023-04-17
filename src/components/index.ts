@@ -12,6 +12,7 @@ export { default as Header } from './organisms/Header/Header';
 export { default as ArticleCard } from './organisms/ArticleCard/ArticleCard';
 export { default as TrendArticles } from './organisms/TrendArticles/TrendArticles';
 export { default as TrendHashTags } from './organisms/TrendHashTags/TrendHashTags';
+export { default as TrendSelect } from './organisms/TrendSelect/TrendSelect';
 
 // templates
 export { default as ContentLayout } from './templates/ContentLayout/ContentLayout';

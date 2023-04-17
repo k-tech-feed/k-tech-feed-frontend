@@ -1,12 +1,13 @@
 import { styled } from '@nextui-org/react';
 
-import { ArticleSection, TrendArticles, TrendHashTags } from '@/components';
+import { ArticleSection, TrendArticles, TrendHashTags, TrendSelect } from '@/components';
 
 export default function Home() {
   return (
     <PageWrapper>
       <ArticleSection />
       <PageAside>
+        <TrendSelect />
         <TrendArticles />
         <TrendHashTags />
       </PageAside>

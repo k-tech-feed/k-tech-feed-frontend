@@ -6,8 +6,8 @@ const TrendArticlesContent = () => {
   const { articles: trends } = useTrendArticlesQuery();
   return (
     <div>
-      {trends.map(({ title, company, pubDate }) => (
-        <TrendArticleItem key={company.name} title={title} company={company} pubDate={pubDate} />
+      {trends.map(({ title, company, pubDate }, idx) => (
+        <TrendArticleItem key={idx} title={title} company={company} pubDate={pubDate} />
       ))}
     </div>
   );
