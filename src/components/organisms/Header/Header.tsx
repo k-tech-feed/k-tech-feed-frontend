@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { useRecoilState } from 'recoil';
 
 import { Navbar } from '@nextui-org/react';
@@ -7,10 +8,11 @@ import { searchInputAtom } from '@/recoils/searchInputAtom';
 
 const Header = () => {
   const [input, setInput] = useRecoilState(searchInputAtom);
+  const router = useRouter();
 
   return (
     <Navbar variant="sticky" css={{ zIndex: 1000 }}>
-      <Navbar.Brand>
+      <Navbar.Brand onClick={() => router.push('/')} css={{ cursor: 'pointer' }}>
         <Logo
           css={{
             position: 'absolute',

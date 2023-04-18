@@ -71,7 +71,6 @@ const PopoverWrapper = styled('div', {
 
   /* Track */
   '&::-webkit-scrollbar-track': {
-    // background: '#f1f1f1',
     borderRadius: '10px',
     overflow: 'hidden',
   },
