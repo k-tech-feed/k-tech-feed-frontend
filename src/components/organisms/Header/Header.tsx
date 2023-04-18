@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import { useEffect, useRef } from 'react';
 import { useRecoilState } from 'recoil';
 
 import { Navbar } from '@nextui-org/react';
@@ -9,6 +10,13 @@ import { searchInputAtom } from '@/recoils/searchInputAtom';
 const Header = () => {
   const [input, setInput] = useRecoilState(searchInputAtom);
   const router = useRouter();
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (input === '' && inputRef.current) {
+      inputRef.current.value = '';
+    }
+  }, [input]);
 
   return (
     <Navbar variant="sticky" css={{ zIndex: 1000 }}>
@@ -22,9 +30,9 @@ const Header = () => {
       </Navbar.Brand>
       <Navbar.Content>
         <SearchInput
+          ref={inputRef}
           aria-label="search"
           placeholder="검색"
-          value={input}
           onChange={(e) => {
             setInput(e.target.value);
           }}

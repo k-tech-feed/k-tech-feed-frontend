@@ -1,17 +1,20 @@
+import { forwardRef } from 'react';
+
 import { type CSS, type FormElement, Input } from '@nextui-org/react';
 import { IconSearch } from '@tabler/icons-react';
 
 interface Props {
   css?: CSS;
   placeholder: string;
-  value: string;
+
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const SearchInput = ({ onChange, ...rest }: Props) => {
+const SearchInput = forwardRef<HTMLInputElement, Props>(({ onChange, ...rest }, ref) => {
   return (
     <Input
       {...rest}
+      ref={ref}
       clearable
       size="lg"
       onChange={(e: React.ChangeEvent<FormElement>) => {
@@ -31,6 +34,8 @@ const SearchInput = ({ onChange, ...rest }: Props) => {
       }}
     />
   );
-};
+});
 
 export default SearchInput;
+
+SearchInput.displayName = 'SeachInput';
