@@ -1,10 +1,10 @@
 import { Suspense } from 'react';
+import { useRecoilState } from 'recoil';
 
 import { Loading, styled } from '@nextui-org/react';
 
 import useClickOutside from '@/hooks/utils/useClickOutside';
 import { searchInputAtom } from '@/recoils/searchInputAtom';
-import { useRecoilState } from 'recoil';
 
 import SearchPopoverContent from './SearchPopoverContent';
 

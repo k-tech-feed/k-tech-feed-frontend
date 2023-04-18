@@ -3,11 +3,11 @@ import type { AppProps } from 'next/app';
 import localFont from 'next/font/local';
 import Head from 'next/head';
 import { useState } from 'react';
+import { RecoilRoot } from 'recoil';
 
 import { NextUIProvider, useSSR } from '@nextui-org/react';
 
 import { PageLayout } from '@/components';
-import { RecoilRoot } from 'recoil';
 
 const fonts = localFont({
   src: [
