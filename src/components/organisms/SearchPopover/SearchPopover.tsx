@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import { useRecoilState } from 'recoil';
 
 import { Loading, styled } from '@nextui-org/react';
+import { useDebounce } from 'usehooks-ts';
 
 import useClickOutside from '@/hooks/utils/useClickOutside';
 import { searchInputAtom } from '@/recoils/searchInputAtom';
@@ -10,6 +11,8 @@ import SearchPopoverContent from './SearchPopoverContent';
 
 const SearchPopover = () => {
   const [searchInput, setSearchInput] = useRecoilState(searchInputAtom);
+  const debouncedSearchInput = useDebounce(searchInput, 500);
+
   const ref = useClickOutside<HTMLDivElement>({
     onClickOutside: () => {
       setSearchInput('');
@@ -32,7 +35,7 @@ const SearchPopover = () => {
             />
           }
         >
-          <SearchPopoverContent keyword={searchInput} />
+          <SearchPopoverContent keyword={debouncedSearchInput} />
         </Suspense>
       </PopoverWrapper>
     </PopoverBackground>
