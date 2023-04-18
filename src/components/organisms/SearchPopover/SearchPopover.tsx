@@ -55,12 +55,35 @@ const PopoverWrapper = styled('div', {
   top: '16px',
   left: '50%',
   transform: 'translate(-50%, 0)',
-  minHeight: '400px',
+  height: '500px',
   borderRadius: '8px',
   backgroundColor: '$white',
   padding: '40px',
   width: '400px',
   '@smMax': {
     width: '100%',
+  },
+  overflow: 'auto',
+  /* width */
+  '&::-webkit-scrollbar': {
+    width: '4px',
+  },
+
+  /* Track */
+  '&::-webkit-scrollbar-track': {
+    // background: '#f1f1f1',
+    borderRadius: '10px',
+    overflow: 'hidden',
+  },
+
+  /* Handle */
+  '&::-webkit-scrollbar-thumb': {
+    background: '$gray600',
+    borderRadius: '8px',
+  },
+
+  /* Handle on hover */
+  '&::-webkit-scrollbar-thumb:hover': {
+    background: '#555',
   },
 });
