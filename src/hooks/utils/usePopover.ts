@@ -1,8 +1,9 @@
 import { useRecoilValue } from 'recoil';
 
+import { useDebounce } from 'usehooks-ts';
+
 import { usePopoverOpen } from '@/recoils/popoverAtom';
 import { searchInputAtom } from '@/recoils/searchInputAtom';
-import { useDebounce } from 'usehooks-ts';
 
 const usePopover = () => {
   const searchInput = useRecoilValue(searchInputAtom);
