@@ -22,6 +22,7 @@ const SearchPopoverContent = ({ keyword }: Props) => {
           검색어
         </Text>
         <ContentSectionRows>
+          {keywords.length === 0 && <Text weight="semibold">관련 검색어가 없습니다.</Text>}
           {keywords.map((keyword, idx) => (
             <Keyword key={idx}>
               <IconSearch color="gray" />
@@ -37,6 +38,7 @@ const SearchPopoverContent = ({ keyword }: Props) => {
           작성자
         </Text>
         <ContentSectionRows>
+          {companys.length === 0 && <Text weight="semibold">관련 작성자가 없습니다.</Text>}
           {companys.map((company, idx) => (
             <CompanyBadge key={idx} company={company} />
           ))}
@@ -47,6 +49,7 @@ const SearchPopoverContent = ({ keyword }: Props) => {
           해시태그
         </Text>
         <ContentSectionRows>
+          {companys.length === 0 && <Text weight="semibold">관련 해시태그가 없습니다.</Text>}
           {hashtags.map((hashtag, idx) => (
             <Badge key={idx} color={CategoryColor(hashtag)}>
               # {hashtag}
