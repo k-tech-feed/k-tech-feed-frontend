@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { Text, styled } from '@nextui-org/react';
 import { IconSearch } from '@tabler/icons-react';
 
@@ -24,12 +26,14 @@ const SearchPopoverContent = ({ keyword }: Props) => {
         <ContentSectionRows>
           {keywords.length === 0 && <Text weight="semibold">관련 검색어가 없습니다.</Text>}
           {keywords.map((keyword, idx) => (
-            <Keyword key={idx}>
-              <IconSearch color="gray" />
-              <Text size={16} weight="normal">
-                {keyword}
-              </Text>
-            </Keyword>
+            <Link key={idx} href={`/search?keyword=${keyword}`}>
+              <Keyword>
+                <IconSearch color="gray" />
+                <Text size={16} weight="normal">
+                  {keyword}
+                </Text>
+              </Keyword>
+            </Link>
           ))}
         </ContentSectionRows>
       </ContentSection>
@@ -40,7 +44,9 @@ const SearchPopoverContent = ({ keyword }: Props) => {
         <ContentSectionRows>
           {companys.length === 0 && <Text weight="semibold">관련 작성자가 없습니다.</Text>}
           {companys.map((company, idx) => (
-            <CompanyBadge key={idx} company={company} />
+            <Link key={idx} href={`/search?keyword=${company.name}`}>
+              <CompanyBadge company={company} />
+            </Link>
           ))}
         </ContentSectionRows>
       </ContentSection>
@@ -51,9 +57,11 @@ const SearchPopoverContent = ({ keyword }: Props) => {
         <ContentSectionRows>
           {companys.length === 0 && <Text weight="semibold">관련 해시태그가 없습니다.</Text>}
           {hashtags.map((hashtag, idx) => (
-            <Badge key={idx} color={CategoryColor(hashtag)}>
-              # {hashtag}
-            </Badge>
+            <Link key={idx} href={`/search?keyword=${hashtag}`}>
+              <Badge key={idx} color={CategoryColor(hashtag)}>
+                # {hashtag}
+              </Badge>
+            </Link>
           ))}
         </ContentSectionRows>
       </ContentSection>
