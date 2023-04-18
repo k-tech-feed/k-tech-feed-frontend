@@ -2,16 +2,20 @@ import { type PropsWithChildren } from 'react';
 
 import { styled } from '@nextui-org/react';
 
-import { ContentLayout, Header } from '@/components';
+import { ContentLayout, Header, SearchPopover } from '@/components';
+import usePopover from '@/hooks/utils/usePopover';
 
 interface Props extends PropsWithChildren {
   className: string;
 }
 
 const PageLayout = ({ children, className }: Props) => {
+  const isPopperOpen = usePopover();
+
   return (
     <PageWrapper className={className}>
       <Header />
+      {isPopperOpen && <SearchPopover />}
       <ContentLayout>{children}</ContentLayout>
     </PageWrapper>
   );
