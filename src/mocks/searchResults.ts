@@ -1,4 +1,4 @@
-const mockSearchResults = {
+const mockSearchHints = {
   keywords: ['react state', 'react native', 'react redux'],
   companys: [
     {
@@ -17,4 +17,4 @@ const mockSearchResults = {
   hashtags: ['React', 'Typescript', 'Websocket'],
 };
 
-export { mockSearchResults };
+export { mockSearchHints };

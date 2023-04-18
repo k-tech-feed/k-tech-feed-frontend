@@ -3,7 +3,7 @@ import { IconSearch } from '@tabler/icons-react';
 
 import Badge from '@/components/atoms/Badge/Badge';
 import CompanyBadge from '@/components/molecules/CompanyBadge/CompanyBadge';
-import { useSearchQuery } from '@/hooks/queries/searchs';
+import { useSearchHintQuery } from '@/hooks/queries/searchs';
 import { CategoryColor } from '@/utils/categoryColors';
 
 interface Props {
@@ -13,7 +13,7 @@ interface Props {
 const SearchPopoverContent = ({ keyword }: Props) => {
   const {
     result: { keywords, companys, hashtags },
-  } = useSearchQuery(keyword);
+  } = useSearchHintQuery(keyword);
 
   return (
     <ContentWrapper>

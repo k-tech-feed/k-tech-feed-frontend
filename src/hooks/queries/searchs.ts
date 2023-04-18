@@ -1,16 +1,16 @@
 import { useQuery } from '@tanstack/react-query';
 
-import { mockSearchResults } from '@/mocks/searchResults';
+import { mockSearchHints } from '@/mocks/searchResults';
 import { type SearchResult } from '@/types/data';
 
-const searchResponse = new Promise((resolve) => {
+const searchHintsResponse = new Promise((resolve) => {
   setTimeout(() => {
-    resolve(mockSearchResults);
+    resolve(mockSearchHints);
   }, 5000);
 });
 
-const useSearchQuery = (keyword: string) => {
-  const { data, ...rest } = useQuery(['search', keyword], () => searchResponse, {
+const useSearchHintQuery = (keyword: string) => {
+  const { data, ...rest } = useQuery(['search', keyword], () => searchHintsResponse, {
     suspense: true,
   });
   return {
@@ -19,4 +19,4 @@ const useSearchQuery = (keyword: string) => {
   };
 };
 
-export { useSearchQuery };
+export { useSearchHintQuery };
