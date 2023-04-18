@@ -17,4 +17,10 @@ interface Article {
   categories: Category[];
 }
 
-export type { Article, Company, Category };
+interface SearchResult {
+  keywords: string[];
+  companys: Company[];
+  hashtags: string[];
+}
+
+export type { Article, Company, Category, SearchResult };

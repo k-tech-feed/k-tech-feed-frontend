@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 
 import { atom, useRecoilState } from 'recoil';
+import { v4 } from 'uuid';
 
 const popoverAtom = atom({
-  key: 'popoverAtom',
+  key: `popoverAtom/${v4()}`,
   default: true,
 });
 

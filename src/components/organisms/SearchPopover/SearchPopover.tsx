@@ -1,9 +1,40 @@
-import { styled } from '@nextui-org/react';
+import { Suspense } from 'react';
+
+import { Loading, styled } from '@nextui-org/react';
+
+import useClickOutside from '@/hooks/utils/useClickOutside';
+import { searchInputAtom } from '@/recoils/searchInputAtom';
+import { useRecoilState } from 'recoil';
+
+import SearchPopoverContent from './SearchPopoverContent';
 
 const SearchPopover = () => {
+  const [searchInput, setSearchInput] = useRecoilState(searchInputAtom);
+  const ref = useClickOutside<HTMLDivElement>({
+    onClickOutside: () => {
+      setSearchInput('');
+    },
+  });
+
   return (
     <PopoverBackground>
-      <PopoverWrapper>asdf</PopoverWrapper>
+      <PopoverWrapper ref={ref}>
+        <Suspense
+          fallback={
+            <Loading
+              type="spinner"
+              css={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+              }}
+            />
+          }
+        >
+          <SearchPopoverContent keyword={searchInput} />
+        </Suspense>
+      </PopoverWrapper>
     </PopoverBackground>
   );
 };
@@ -26,7 +57,7 @@ const PopoverWrapper = styled('div', {
   transform: 'translate(-50%, 0)',
   minHeight: '400px',
   borderRadius: '8px',
-  backgroundColor: '$gray100',
+  backgroundColor: '$white',
   padding: '40px',
   width: '400px',
   '@smMax': {

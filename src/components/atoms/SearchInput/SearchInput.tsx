@@ -4,6 +4,7 @@ import { IconSearch } from '@tabler/icons-react';
 interface Props {
   css?: CSS;
   placeholder: string;
+  value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 

@@ -52,15 +52,15 @@ export default function App({ Component, pageProps }: AppProps) {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <RecoilRoot>
-          <QueryClientProvider client={queryClient}>
+        <QueryClientProvider client={queryClient}>
+          <RecoilRoot>
             <Hydrate state={pageProps.dehydratedState}>
               <PageLayout className={fonts.className}>
                 <Component {...pageProps} />
               </PageLayout>
             </Hydrate>
-          </QueryClientProvider>
-        </RecoilRoot>
+          </RecoilRoot>
+        </QueryClientProvider>
       </NextUIProvider>
     )
   );
