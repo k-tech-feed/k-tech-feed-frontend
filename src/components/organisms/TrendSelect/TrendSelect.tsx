@@ -1,38 +1,30 @@
 import { useState } from 'react';
 
-import { Navbar, Text, styled } from '@nextui-org/react';
+import { Text, styled } from '@nextui-org/react';
+
+import { SegmentedControl } from '@/components';
 
 const TrendSelect = () => {
-  const [selectedTrend, setSelectedTrend] = useState('weekly');
+  const [selectedTrend, setSelectedTrend] = useState('Weekly');
 
   return (
     <TrendSelectWrapper>
       <Text size={24} weight="bold" css={{ whiteSpace: 'nowrap' }}>
         트렌드
       </Text>
-      <Navbar disableShadow isCompact>
-        <Navbar.Content
-          css={{ display: 'flex', gap: '8px', height: 'min-content' }}
-          variant="highlight"
-        >
-          <Navbar.Item
-            isActive={selectedTrend === 'weekly'}
+      <SegmentedControl>
+        {['Weekly', 'Monthly'].map((word, idx) => (
+          <SegmentedControl.Item
+            key={idx}
+            isSelected={selectedTrend === word}
             onClick={() => {
-              setSelectedTrend('weekly');
+              setSelectedTrend(word);
             }}
           >
-            Weekly
-          </Navbar.Item>
-          <Navbar.Item
-            isActive={selectedTrend === 'monthly'}
-            onClick={() => {
-              setSelectedTrend('monthly');
-            }}
-          >
-            Monthly
-          </Navbar.Item>
-        </Navbar.Content>
-      </Navbar>
+            <Text weight="semibold">{word}</Text>
+          </SegmentedControl.Item>
+        ))}
+      </SegmentedControl>
     </TrendSelectWrapper>
   );
 };
