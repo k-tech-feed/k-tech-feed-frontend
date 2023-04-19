@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 import { Text } from '@nextui-org/react';
 
-import { Badge, CompanyPubdateBadge } from '@/components';
+import { AuthorTimeBadge, Badge } from '@/components';
 import { type Article } from '@/types/data';
 import { CategoryColor } from '@/utils/categoryColors';
 
@@ -19,11 +19,11 @@ interface Props {
 }
 
 const ArticleCard = ({ article }: Props) => {
-  const { title, pubDate, company, description, categories } = article;
+  const { title, author, timestamp, summary, hashtags } = article;
 
   return (
     <ArticleCardWrapper>
-      <CompanyPubdateBadge company={company} pubDate={pubDate} />
+      <AuthorTimeBadge author={author} timestamp={timestamp} />
       <ArticleContent>
         <ArticleContentTexts>
           <Text size={24} weight="bold">
@@ -43,7 +43,7 @@ const ArticleCard = ({ article }: Props) => {
               '-webkit-box-orient': 'vertical',
             }}
           >
-            {description}
+            {summary}
           </Text>
         </ArticleContentTexts>
         <ArticleThumbnail>
@@ -51,9 +51,9 @@ const ArticleCard = ({ article }: Props) => {
         </ArticleThumbnail>
       </ArticleContent>
       <BadgeWrapper>
-        {categories.map(({ name, id }) => (
-          <Badge key={id} color={CategoryColor(name)}>
-            # {name}
+        {hashtags.map((hashtag, idx) => (
+          <Badge key={idx} color={CategoryColor(hashtag)}>
+            # {hashtag}
           </Badge>
         ))}
       </BadgeWrapper>

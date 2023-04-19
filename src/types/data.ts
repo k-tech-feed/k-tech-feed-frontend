@@ -1,26 +1,28 @@
-interface Company {
+interface Author {
+  id: number;
   name: string;
-  imgUrl: string;
+  logoUrl: string;
 }
 
-interface Category {
+interface HashTag {
   id: number;
   name: string;
 }
 
 interface Article {
   id: number;
+  author: Author;
   title: string;
-  description: string;
-  company: Company;
-  pubDate: string;
-  categories: Category[];
+  summary: string;
+  thumbnailUrl: string;
+  timestamp: string;
+  hashtags: string[];
 }
 
 interface SearchResult {
   keywords: string[];
-  companys: Company[];
+  authors: Author[];
   hashtags: string[];
 }
 
-export type { Article, Company, Category, SearchResult };
+export type { Article, Author, HashTag, SearchResult };

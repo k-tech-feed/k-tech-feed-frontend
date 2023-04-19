@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 
 import { mockArticles, mockTrendHashTags } from '@/mocks/articles';
-import { type Article, type Category } from '@/types/data';
+import { type Article } from '@/types/data';
 
 // TODO: axios를 통한 비동기 호출로 바꾸기
 const articleResponse = new Promise((resolve) => {
@@ -50,7 +50,7 @@ const useTrendHashTagsQuery = () => {
   });
 
   return {
-    hashTags: data as Category[],
+    hashTags: data as string[],
     ...rest,
   };
 };

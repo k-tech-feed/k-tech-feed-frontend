@@ -1,18 +1,18 @@
 import { Text, styled } from '@nextui-org/react';
 
-import { CompanyPubdateBadge } from '@/components';
-import { type Company } from '@/types/data';
+import { AuthorTimeBadge } from '@/components';
+import { type Author } from '@/types/data';
 
 interface Props {
   title: string;
-  company: Company;
-  pubDate: string;
+  author: Author;
+  timestamp: string;
 }
 
-const TrendArticleItem = ({ title, company, pubDate }: Props) => {
+const TrendArticleItem = ({ title, author, timestamp }: Props) => {
   return (
     <ItemWrapper>
-      <CompanyPubdateBadge company={company} pubDate={pubDate} />
+      <AuthorTimeBadge author={author} timestamp={timestamp} />
       <Text size={16} weight="bold">
         {title}
       </Text>

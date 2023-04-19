@@ -2,28 +2,28 @@ import Image from 'next/image';
 
 import { Text, styled } from '@nextui-org/react';
 
-import { type Company } from '@/types/data';
+import { type Author } from '@/types/data';
 
 interface Props {
-  company: Company;
+  author: Author;
 }
 
-const CompanyBadge = ({ company }: Props) => {
-  const { name, imgUrl } = company;
+const AuthorBadge = ({ author }: Props) => {
+  const { name, logoUrl } = author;
 
   return (
-    <CompanyBadgeWrapper>
-      <CompanyImage src={imgUrl} alt="companyLogo" width={24} height={24} />
+    <AuthorBadgeWrapper>
+      <CompanyImage src={logoUrl} alt="authorLogo" width={24} height={24} />
       <Text size={14} weight="medium">
         {name}
       </Text>
-    </CompanyBadgeWrapper>
+    </AuthorBadgeWrapper>
   );
 };
 
-export default CompanyBadge;
+export default AuthorBadge;
 
-const CompanyBadgeWrapper = styled('div', {
+const AuthorBadgeWrapper = styled('div', {
   display: 'flex',
   gap: '8px',
   alignItems: 'center',

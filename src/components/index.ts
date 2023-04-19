@@ -4,8 +4,8 @@ export { default as SearchInput } from './atoms/SearchInput/SearchInput';
 export { default as Badge } from './atoms/Badge/Badge';
 
 // molecules
-export { default as CompanyBadge } from './molecules/CompanyBadge/CompanyBadge';
-export { default as CompanyPubdateBadge } from './molecules/CompanyPubdateBadge/CompanyPubdateBadge';
+export { default as AuthorBadge } from './molecules/AuthorBadge/AuthorBadge';
+export { default as AuthorTimeBadge } from './molecules/AuthorTimeBadge/AuthorTimeBadge';
 export { default as SegmentedControl } from './molecules/SegmentedControl/SegmentedControl';
 
 // organisms

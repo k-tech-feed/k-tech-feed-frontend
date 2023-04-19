@@ -3,104 +3,34 @@ import { type Article } from '@/types/data';
 const mockArticles: Article[] = [
   {
     id: 1,
-    title: '카카오워크 음성채팅 웹 개발기',
-    pubDate: 'Fri, 07 Apr 2023 16:00:43 +0900',
-    description:
-      '이번 포스팅에서는 지난 8월 카카오워크 신규 기능으로 탑재된 음성채팅을 구현했습니다. 음성채팅 기능은 각종 최신 기술 스택을 활용했습니다. 이번 포스팅에서는 지난 8월 카카오워크 신규 기능으로 탑재된 음성채팅을 구현했습니다. 음성채팅 기능은 각종 최신 기술 스택을 활용했습니다.',
-    company: {
+    author: {
+      id: 1,
       name: '카카오엔터프라이즈',
-      imgUrl: '/kakao.png',
+      logoUrl:
+        'https://tistory1.daumcdn.net/tistory/3769165/attach/b1fa9f8c61f847e38985e272eba3ad33',
     },
-    categories: [
-      { id: 1, name: 'Typescript' },
-      { id: 2, name: 'React' },
-      { id: 3, name: 'Websocket' },
-    ],
+    title: '[IT TREND] AGI를 향한 기대와 우려',
+    summary: 'summary',
+    thumbnailUrl: 'https://blog.kakaocdn.net/dn/oSRMP/btr8vsu8HBu/0kS9e6kvxvXiXSGqh2aaL1/img.png',
+    timestamp: '2023-04-18T11:18:01',
+    hashtags: ['hello', 'world'],
   },
   {
     id: 2,
-    title: '카카오워크 음성채팅 웹 개발기',
-    pubDate: 'Fri, 07 Apr 2023 16:00:43 +0900',
-    description:
-      '이번 포스팅에서는 지난 8월 카카오워크 신규 기능으로 탑재된 음성채팅을 구현했습니다. 음성채팅 기능은 각종 최신 기술 스택을 활용했습니다. 이번 포스팅에서는 지난 8월 카카오워크 신규 기능으로 탑재된 음성채팅을 구현했습니다. 음성채팅 기능은 각종 최신 기술 스택을 활용했습니다.',
-    company: {
+    author: {
+      id: 1,
       name: '카카오엔터프라이즈',
-      imgUrl: '/kakao.png',
+      logoUrl:
+        'https://tistory1.daumcdn.net/tistory/3769165/attach/b1fa9f8c61f847e38985e272eba3ad33',
     },
-    categories: [
-      { id: 1, name: 'Typescript' },
-      { id: 2, name: 'React' },
-      { id: 3, name: 'Websocket' },
-    ],
-  },
-  {
-    id: 3,
-    title:
-      '카카오워크 음성채팅 웹 개발기 카카오워크 음성채팅 웹 개발기 카카오워크 음성채팅 웹 개발기',
-    pubDate: 'Fri, 07 Apr 2023 16:00:43 +0900',
-    description:
-      '이번 포스팅에서는 지난 8월 카카오워크 신규 기능으로 탑재된 음성채팅을 구현했습니다. 음성채팅 기능은 각종 최신 기술 스택을 활용했습니다. 이번 포스팅에서는 지난 8월 카카오워크 신규 기능으로 탑재된 음성채팅을 구현했습니다. 음성채팅 기능은 각종 최신 기술 스택을 활용했습니다.',
-    company: {
-      name: '카카오엔터프라이즈',
-      imgUrl: '/kakao.png',
-    },
-    categories: [
-      { id: 1, name: 'Typescript' },
-      { id: 2, name: 'React' },
-      { id: 3, name: 'Websocket' },
-    ],
-  },
-  {
-    id: 4,
-    title: '카카오워크 음성채팅 웹 개발기',
-    pubDate: 'Fri, 07 Apr 2023 16:00:43 +0900',
-    description:
-      '이번 포스팅에서는 지난 8월 카카오워크 신규 기능으로 탑재된 음성채팅을 구현했습니다. 음성채팅 기능은 각종 최신 기술 스택을 활용했습니다. 이번 포스팅에서는 지난 8월 카카오워크 신규 기능으로 탑재된 음성채팅을 구현했습니다. 음성채팅 기능은 각종 최신 기술 스택을 활용했습니다.',
-    company: {
-      name: '카카오엔터프라이즈',
-      imgUrl: '/kakao.png',
-    },
-    categories: [
-      { id: 1, name: 'Typescript' },
-      { id: 2, name: 'React' },
-      { id: 3, name: 'Websocket' },
-    ],
-  },
-  {
-    id: 5,
-    title: '카카오워크 음성채팅 웹 개발기',
-    pubDate: 'Fri, 07 Apr 2023 16:00:43 +0900',
-    description:
-      '이번 포스팅에서는 지난 8월 카카오워크 신규 기능으로 탑재된 음성채팅을 구현했습니다. 음성채팅 기능은 각종 최신 기술 스택을 활용했습니다. 이번 포스팅에서는 지난 8월 카카오워크 신규 기능으로 탑재된 음성채팅을 구현했습니다. 음성채팅 기능은 각종 최신 기술 스택을 활용했습니다.',
-    company: {
-      name: '카카오엔터프라이즈',
-      imgUrl: '/kakao.png',
-    },
-    categories: [
-      { id: 1, name: 'Typescript' },
-      { id: 2, name: 'React' },
-      { id: 3, name: 'Websocket' },
-    ],
+    title: '테크니컬 라이터와 Git',
+    summary: 'summary',
+    thumbnailUrl: 'https://blog.kakaocdn.net/dn/brIAMe/btr7SthsxTD/y4noVUemiCgRtoKk7Knnjk/img.png',
+    timestamp: '2023-04-15T11:18:01',
+    hashtags: ['git', 'gongmeda', 'hello'],
   },
 ];
 
-const mockTrendHashTags = [
-  { id: 1, name: 'Typescript' },
-  { id: 2, name: 'React' },
-  { id: 3, name: 'Websocket' },
-  { id: 4, name: 'Spring' },
-  { id: 5, name: 'Java' },
-  { id: 6, name: 'MySQL' },
-  { id: 7, name: 'MSA' },
-  { id: 8, name: 'MSA' },
-  { id: 9, name: 'MSA' },
-  { id: 10, name: 'MSA' },
-  { id: 11, name: 'MSA' },
-  { id: 12, name: 'MSA' },
-  { id: 13, name: 'MSA' },
-  { id: 14, name: 'MSA' },
-  { id: 15, name: 'MSA' },
-  { id: 16, name: 'MSA' },
-];
+const mockTrendHashTags = ['Typescript', 'React', 'Websocket', 'Spring', 'Java', 'MySQL', 'MSA'];
 
 export { mockArticles, mockTrendHashTags };

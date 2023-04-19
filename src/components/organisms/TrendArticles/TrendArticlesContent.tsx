@@ -10,8 +10,8 @@ const TrendArticlesContent = ({ isMobile }: Props) => {
   const { articles: trends } = useTrendArticlesQuery();
   return (
     <div>
-      {trends.slice(0, isMobile ? 1 : trends.length).map(({ title, company, pubDate }, idx) => (
-        <TrendArticleItem key={idx} title={title} company={company} pubDate={pubDate} />
+      {trends.slice(0, isMobile ? 1 : trends.length).map(({ title, author, timestamp }, idx) => (
+        <TrendArticleItem key={idx} title={title} author={author} timestamp={timestamp} />
       ))}
     </div>
   );

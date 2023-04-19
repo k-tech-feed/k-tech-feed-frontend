@@ -4,7 +4,7 @@ import { Text, styled } from '@nextui-org/react';
 import { IconSearch } from '@tabler/icons-react';
 
 import Badge from '@/components/atoms/Badge/Badge';
-import CompanyBadge from '@/components/molecules/CompanyBadge/CompanyBadge';
+import AuthorBadge from '@/components/molecules/AuthorBadge/AuthorBadge';
 import { useSearchHintQuery } from '@/hooks/queries/searchs';
 import { CategoryColor } from '@/utils/categoryColors';
 
@@ -14,7 +14,7 @@ interface Props {
 
 const SearchPopoverContent = ({ keyword }: Props) => {
   const {
-    result: { keywords, companys, hashtags },
+    result: { keywords, authors, hashtags },
   } = useSearchHintQuery(keyword);
 
   return (
@@ -42,10 +42,10 @@ const SearchPopoverContent = ({ keyword }: Props) => {
           작성자
         </Text>
         <ContentSectionRows>
-          {companys.length === 0 && <Text weight="semibold">관련 작성자가 없습니다.</Text>}
-          {companys.map((company, idx) => (
-            <Link key={idx} href={`/search?keyword=${company.name}`}>
-              <CompanyBadge company={company} />
+          {authors.length === 0 && <Text weight="semibold">관련 작성자가 없습니다.</Text>}
+          {authors.map((author, idx) => (
+            <Link key={idx} href={`/search?keyword=${author.name}`}>
+              <AuthorBadge author={author} />
             </Link>
           ))}
         </ContentSectionRows>
@@ -55,7 +55,7 @@ const SearchPopoverContent = ({ keyword }: Props) => {
           해시태그
         </Text>
         <ContentSectionRows>
-          {companys.length === 0 && <Text weight="semibold">관련 해시태그가 없습니다.</Text>}
+          {hashtags.length === 0 && <Text weight="semibold">관련 해시태그가 없습니다.</Text>}
           {hashtags.map((hashtag, idx) => (
             <Link key={idx} href={`/search?keyword=${hashtag}`}>
               <Badge key={idx} color={CategoryColor(hashtag)}>

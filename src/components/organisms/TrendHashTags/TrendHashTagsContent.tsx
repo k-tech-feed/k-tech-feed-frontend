@@ -9,9 +9,9 @@ const TrendHashTagsContent = () => {
 
   return (
     <ContentWrapper>
-      {hashTags.map((hashTag) => (
-        <Badge key={hashTag.id} color={CategoryColor(hashTag.name)}>
-          # {hashTag.name}
+      {hashTags.map((hashTag, idx) => (
+        <Badge key={idx} color={CategoryColor(hashTag)}>
+          # {hashTag}
         </Badge>
       ))}
     </ContentWrapper>
