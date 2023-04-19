@@ -32,6 +32,7 @@ const ItemWrapper = styled('li', {
   alignItems: 'center',
   padding: '6px 12px ',
   margin: '0',
+  cursor: 'pointer',
 });
 
 const ItemChildrenWrapper = styled('div', {
