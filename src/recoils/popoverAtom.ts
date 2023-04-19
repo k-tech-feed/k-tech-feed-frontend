@@ -15,8 +15,10 @@ const usePopoverOpen = (openable: boolean) => {
     setIsOpen(openable);
     if (openable) {
       document.body.style.overflow = 'hidden';
+      document.body.style.paddingRight = '14px';
     } else {
       document.body.style.overflow = 'auto';
+      document.body.style.paddingRight = '0px';
     }
   }, [openable, setIsOpen]);
 

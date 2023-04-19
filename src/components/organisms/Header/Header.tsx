@@ -19,7 +19,13 @@ const Header = () => {
   }, [input]);
 
   return (
-    <Navbar variant="sticky" css={{ zIndex: 1000 }}>
+    <Navbar
+      variant="sticky"
+      css={{ zIndex: 1000, borderBottom: '1px solid $gray200' }}
+      disableShadow
+      maxWidth="fluid"
+      isBordered
+    >
       <Navbar.Brand onClick={() => router.push('/')} css={{ cursor: 'pointer' }}>
         <Logo
           css={{
