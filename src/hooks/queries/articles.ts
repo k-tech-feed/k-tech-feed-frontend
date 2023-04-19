@@ -66,6 +66,7 @@ const useLatestArticlesQuery = () => {
     ({ pageParam = 99999 }) => getLatestArticles(pageParam, 5),
     {
       getNextPageParam: (lastPage) => (!lastPage.isLast ? lastPage.lastId : undefined),
+      suspense: true,
     }
   );
 
