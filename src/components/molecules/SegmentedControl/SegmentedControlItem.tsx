@@ -1,7 +1,6 @@
 import { type HTMLAttributes } from 'react';
 
 import { styled } from '@nextui-org/react';
-
 import { motion } from 'framer-motion';
 
 interface Props extends HTMLAttributes<HTMLLIElement> {
