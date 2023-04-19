@@ -43,7 +43,7 @@
           },
           // styling, 아이콘 외부 모듈들을 한 그룹으로 생성
           {
-            "pattern": "{@nextui-org/react,@tabler/*,react-responsive,usehooks-ts,framer-motion}",
+            "pattern": "{@nextui-org/react,@tabler/*,react-responsive,usehooks-ts,framer-motion,axios}",
             "group": "external",
             "position": "after"
           }

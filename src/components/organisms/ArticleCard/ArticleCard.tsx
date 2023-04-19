@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { forwardRef } from 'react';
 
 import { Text } from '@nextui-org/react';
 
@@ -18,11 +19,11 @@ interface Props {
   article: Article;
 }
 
-const ArticleCard = ({ article }: Props) => {
+const ArticleCard = forwardRef<HTMLDivElement, Props>(({ article }: Props, ref) => {
   const { title, author, timestamp, summary, hashtags } = article;
 
   return (
-    <ArticleCardWrapper>
+    <ArticleCardWrapper ref={ref}>
       <AuthorTimeBadge author={author} timestamp={timestamp} />
       <ArticleContent>
         <ArticleContentTexts>
@@ -59,6 +60,8 @@ const ArticleCard = ({ article }: Props) => {
       </BadgeWrapper>
     </ArticleCardWrapper>
   );
-};
+});
+
+ArticleCard.displayName = 'ArticleCard';
 
 export default ArticleCard;

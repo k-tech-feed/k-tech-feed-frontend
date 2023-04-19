@@ -1,7 +1,10 @@
-import { useQuery } from '@tanstack/react-query';
+import { useInfiniteQuery, useQuery } from '@tanstack/react-query';
+
+import { type AxiosError } from 'axios';
 
 import { mockArticles, mockTrendHashTags } from '@/mocks/articles';
 import { type Article } from '@/types/data';
+import { apiRequest } from '@/utils/commonAxios';
 
 // TODO: axios를 통한 비동기 호출로 바꾸기
 const articleResponse = new Promise((resolve) => {
@@ -33,6 +36,47 @@ const useArticlesQuery = () => {
   };
 };
 
+const getLatestArticles = async (
+  lastId: number,
+  size: number
+): Promise<{ data: Article[]; lastId: number; isLast: boolean }> => {
+  const { data } = await apiRequest.get<Article[]>('/articles', {
+    params: {
+      size,
+      lastId,
+    },
+  });
+
+  return {
+    data,
+    lastId: data[data.length - 1]?.id,
+    isLast: data.length < size,
+  };
+};
+
+interface ArticlePagingData {
+  data: Article[];
+  lastId: number;
+  isLast: boolean;
+}
+
+const useLatestArticlesQuery = () => {
+  const { data, ...rest } = useInfiniteQuery<ArticlePagingData, AxiosError, ArticlePagingData>(
+    ['articles', 'latest'],
+    ({ pageParam = 99999 }) => getLatestArticles(pageParam, 5),
+    {
+      getNextPageParam: (lastPage) => (!lastPage.isLast ? lastPage.lastId : undefined),
+    }
+  );
+
+  const articles = data ? data.pages.flatMap(({ data }) => data) : undefined;
+
+  return {
+    data: articles,
+    ...rest,
+  };
+};
+
 const useTrendArticlesQuery = () => {
   const { data, ...rest } = useQuery(['articles', 'trend'], () => trendArticleResponse, {
     suspense: true,
@@ -55,4 +99,4 @@ const useTrendHashTagsQuery = () => {
   };
 };
 
-export { useArticlesQuery, useTrendArticlesQuery, useTrendHashTagsQuery };
+export { useArticlesQuery, useTrendArticlesQuery, useTrendHashTagsQuery, useLatestArticlesQuery };

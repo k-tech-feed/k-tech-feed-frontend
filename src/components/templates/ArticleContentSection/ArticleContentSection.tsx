@@ -1,14 +1,30 @@
 import { ArticleCard } from '@/components';
-import { useArticlesQuery } from '@/hooks/queries/articles';
+import { useLatestArticlesQuery } from '@/hooks/queries/articles';
+import useIntersect from '@/hooks/utils/useIntersect';
 
 const ArticleContentSection = () => {
-  const { articles } = useArticlesQuery();
+  const { data: articles, fetchNextPage, hasNextPage, isFetching } = useLatestArticlesQuery();
+
+  const ref = useIntersect(
+    (entry, observer) => {
+      observer.unobserve(entry.target);
+      if (hasNextPage && !isFetching) {
+        void fetchNextPage();
+      }
+    },
+    {
+      rootMargin: '40px',
+    }
+  );
 
   return (
     <>
-      {articles.map((article) => (
-        <ArticleCard key={article.id} article={article} />
-      ))}
+      <>
+        {articles?.map((article) => (
+          <ArticleCard key={article.id} article={article} />
+        ))}
+      </>
+      <div ref={ref}></div>
     </>
   );
 };
