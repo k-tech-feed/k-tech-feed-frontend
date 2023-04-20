@@ -4,21 +4,25 @@ import { Suspense } from 'react';
 import { Text, styled } from '@nextui-org/react';
 
 import { ArticleContentSection, ArticleLoading } from '@/components';
+import { useAuthorQuery } from '@/hooks/queries/authors';
 
 const ArticeSection = () => {
   const router = useRouter();
 
   const {
     pathname,
-    query: { keyword },
+    query: { id },
   } = router;
+
+  const { data: author } = useAuthorQuery(id as string);
 
   return (
     <ArticleSectionWrapper>
       <Text size={32} weight="bold">
-        {pathname === '/search'
-          ? `${(keyword as string) ?? '아티클'} 에 대한 검색 결과 `
-          : '최신 아티클'}
+        {pathname === '/' && '최신 아티클'}
+        {pathname.includes('/keyword') && `${(id as string) ?? '아티클'} 에 대한 검색 결과 `}
+        {pathname.includes('/author') && `${author?.name ?? '아티클'} 에 대한 검색 결과 `}
+        {pathname.includes('/hashtag') && `${(id as string) ?? '아티클'} 에 대한 검색 결과 `}
       </Text>
       <Suspense fallback={<ArticleLoading />}>
         <ArticleContentSection />

@@ -1,17 +1,11 @@
 import { useInfiniteQuery, useQuery } from '@tanstack/react-query';
+import { useRouter } from 'next/router';
 
 import { type AxiosError } from 'axios';
 
 import { mockArticles, mockTrendHashTags } from '@/mocks/articles';
 import { type Article } from '@/types/data';
 import { apiRequest } from '@/utils/commonAxios';
-
-// TODO: axios를 통한 비동기 호출로 바꾸기
-const articleResponse = new Promise((resolve) => {
-  setTimeout(() => {
-    resolve(mockArticles);
-  }, 2000);
-});
 
 const trendArticleResponse = new Promise((resolve) => {
   setTimeout(() => {
@@ -25,25 +19,16 @@ const trendHashTagsResponse = new Promise((resolve) => {
   }, 1500);
 });
 
-const useArticlesQuery = () => {
-  const { data, ...rest } = useQuery(['articles'], () => articleResponse, {
-    suspense: true,
-  });
-
-  return {
-    articles: data as Article[],
-    ...rest,
-  };
-};
-
-const getLatestArticles = async (
+const getArticles = async (
   afterId: number,
-  size: number
+  size: number,
+  optionParam?: Record<string, string>
 ): Promise<{ data: Article[]; afterId: number; isLast: boolean }> => {
   const { data } = await apiRequest.get<Article[]>('/articles', {
     params: {
       size,
       afterId,
+      ...optionParam,
     },
   });
 
@@ -60,13 +45,22 @@ interface ArticlePagingData {
   isLast: boolean;
 }
 
-const useLatestArticlesQuery = () => {
+interface ArticleQueryProps {
+  type?: string;
+  param?: string;
+  optionParam?: Record<string, string>;
+}
+
+const useArticlesQuery = ({ type = 'latest', optionParam = {} }: ArticleQueryProps) => {
+  const { isReady } = useRouter();
+
   const { data, ...rest } = useInfiniteQuery<ArticlePagingData, AxiosError, ArticlePagingData>(
-    ['articles', 'latest'],
-    ({ pageParam = 0 }) => getLatestArticles(pageParam, 5),
+    ['articles', type, optionParam],
+    ({ pageParam = 0 }) => getArticles(pageParam, 5, optionParam),
     {
       getNextPageParam: (lastPage) => (!lastPage.isLast ? lastPage.afterId : undefined),
       suspense: true,
+      enabled: isReady,
     }
   );
 
@@ -100,4 +94,4 @@ const useTrendHashTagsQuery = () => {
   };
 };
 
-export { useArticlesQuery, useTrendArticlesQuery, useTrendHashTagsQuery, useLatestArticlesQuery };
+export { useTrendArticlesQuery, useTrendHashTagsQuery, useArticlesQuery };
