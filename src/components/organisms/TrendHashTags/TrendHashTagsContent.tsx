@@ -1,14 +1,18 @@
+import { useRecoilValue } from 'recoil';
+
 import { styled } from '@nextui-org/react';
 
 import { HashTagBadge } from '@/components';
-import { useTrendHashTagsQuery } from '@/hooks/queries/articles';
+import { useTrendingHashtagsQuery } from '@/hooks/queries/trendings';
+import { trendAtom } from '@/recoils/trendAtom';
 
 const TrendHashTagsContent = () => {
-  const { hashTags } = useTrendHashTagsQuery();
+  const trendType = useRecoilValue(trendAtom);
+  const { data: hashTags } = useTrendingHashtagsQuery({ type: trendType });
 
   return (
     <ContentWrapper>
-      {hashTags.map((hashTag, idx) => (
+      {hashTags?.map((hashTag, idx) => (
         <HashTagBadge hashtag={hashTag} key={idx} />
       ))}
     </ContentWrapper>
