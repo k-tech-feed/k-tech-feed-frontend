@@ -12,18 +12,20 @@ interface Props {
 
 const TrendArticleItem = ({ title, author, timestamp, href }: Props) => {
   return (
-    <ItemWrapper href={href} target="_blank">
+    <ItemWrapper>
       <AuthorTimeBadge author={author} timestamp={timestamp} />
-      <Text size={16} weight="bold">
-        {title}
-      </Text>
+      <a href={href} target="_blank">
+        <Text size={16} weight="bold">
+          {title}
+        </Text>
+      </a>
     </ItemWrapper>
   );
 };
 
 export default TrendArticleItem;
 
-const ItemWrapper = styled('a', {
+const ItemWrapper = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   padding: '16px 0',
