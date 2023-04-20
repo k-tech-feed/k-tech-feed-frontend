@@ -19,11 +19,14 @@ interface Props {
   article: Article;
 }
 
-const ArticleCard = forwardRef<HTMLDivElement, Props>(({ article }: Props, ref) => {
-  const { title, author, timestamp, summary, hashtags } = article;
+const ArticleCard = forwardRef<HTMLAnchorElement, Props>(({ article }: Props, ref) => {
+  const { id, title, author, timestamp, summary, hashtags } = article;
 
   return (
-    <ArticleCardWrapper ref={ref}>
+    <ArticleCardWrapper
+      href={`${process.env.NEXT_PUBLIC_API_URL as string}/articles/${id}`}
+      ref={ref}
+    >
       <AuthorTimeBadge author={author} timestamp={timestamp} />
       <ArticleContent>
         <ArticleContentTexts>
