@@ -12,7 +12,7 @@ const TrendHashTagsContent = () => {
 
   return (
     <ContentWrapper>
-      {hashTags?.map((hashTag, idx) => (
+      {hashTags?.slice(0, 8).map((hashTag, idx) => (
         <HashTagBadge hashtag={hashTag} key={idx} />
       ))}
     </ContentWrapper>
