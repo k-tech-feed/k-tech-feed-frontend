@@ -5,7 +5,7 @@ import { v4 } from 'uuid';
 
 const popoverAtom = atom({
   key: `popoverAtom/${v4()}`,
-  default: true,
+  default: false,
 });
 
 const usePopoverOpen = (openable: boolean) => {

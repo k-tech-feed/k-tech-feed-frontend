@@ -8,7 +8,8 @@ import { searchInputAtom } from '@/recoils/searchInputAtom';
 const usePopover = () => {
   const searchInput = useRecoilValue(searchInputAtom);
   const debouncedSearchInput = useDebounce(searchInput, 200);
-  const isPopperOpen = usePopoverOpen(debouncedSearchInput.trim().length > 0);
+
+  const isPopperOpen = usePopoverOpen(debouncedSearchInput.length > 0);
 
   return isPopperOpen;
 };
