@@ -1,8 +1,7 @@
 import { styled } from '@nextui-org/react';
 
-import { Badge } from '@/components';
+import { HashTagBadge } from '@/components';
 import { useTrendHashTagsQuery } from '@/hooks/queries/articles';
-import { CategoryColor } from '@/utils/categoryColors';
 
 const TrendHashTagsContent = () => {
   const { hashTags } = useTrendHashTagsQuery();
@@ -10,9 +9,7 @@ const TrendHashTagsContent = () => {
   return (
     <ContentWrapper>
       {hashTags.map((hashTag, idx) => (
-        <Badge key={idx} color={CategoryColor(hashTag)}>
-          # {hashTag}
-        </Badge>
+        <HashTagBadge hashtag={hashTag} key={idx} />
       ))}
     </ContentWrapper>
   );

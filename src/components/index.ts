@@ -7,6 +7,7 @@ export { default as AuthorBadge } from './atoms/AuthorBadge/AuthorBadge';
 // molecules
 export { default as AuthorTimeBadge } from './molecules/AuthorTimeBadge/AuthorTimeBadge';
 export { default as SegmentedControl } from './molecules/SegmentedControl/SegmentedControl';
+export { default as HashTagBadge } from './molecules/HashTagBadge/HashTagBadge';
 
 // organisms
 export { default as Header } from './organisms/Header/Header';

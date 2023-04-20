@@ -3,9 +3,8 @@ import Link from 'next/link';
 import { Text, styled } from '@nextui-org/react';
 import { IconSearch } from '@tabler/icons-react';
 
-import { AuthorBadge, Badge } from '@/components';
+import { AuthorBadge, HashTagBadge } from '@/components';
 import { useSearchHintQuery } from '@/hooks/queries/searchs';
-import { CategoryColor } from '@/utils/categoryColors';
 
 interface Props {
   keyword: string;
@@ -56,11 +55,7 @@ const SearchPopoverContent = ({ keyword }: Props) => {
         <ContentSectionRows>
           {hashtags.length === 0 && <Text weight="semibold">관련 해시태그가 없습니다.</Text>}
           {hashtags.map((hashtag, idx) => (
-            <Link key={idx} href={`/search?keyword=${hashtag}`}>
-              <Badge key={idx} color={CategoryColor(hashtag)}>
-                # {hashtag}
-              </Badge>
-            </Link>
+            <HashTagBadge key={idx} hashtag={hashtag} />
           ))}
         </ContentSectionRows>
       </ContentSection>

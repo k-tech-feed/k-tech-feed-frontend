@@ -3,9 +3,8 @@ import { forwardRef } from 'react';
 
 import { Text } from '@nextui-org/react';
 
-import { AuthorTimeBadge, Badge } from '@/components';
+import { AuthorTimeBadge, HashTagBadge } from '@/components';
 import { type Article } from '@/types/data';
-import { CategoryColor } from '@/utils/categoryColors';
 
 import {
   ArticleCardWrapper,
@@ -64,9 +63,7 @@ const ArticleCard = forwardRef<HTMLDivElement, Props>(({ article }: Props, ref) 
       </ArticleContent>
       <BadgeWrapper>
         {hashtags.map((hashtag, idx) => (
-          <Badge key={idx} color={CategoryColor(hashtag)}>
-            # {hashtag}
-          </Badge>
+          <HashTagBadge hashtag={hashtag} key={idx} />
         ))}
       </BadgeWrapper>
     </ArticleCardWrapper>
