@@ -26,6 +26,7 @@ const ArticleCard = forwardRef<HTMLAnchorElement, Props>(({ article }: Props, re
     <ArticleCardWrapper
       href={`${process.env.NEXT_PUBLIC_API_URL as string}/articles/${id}`}
       ref={ref}
+      target="_blank"
     >
       <AuthorTimeBadge author={author} timestamp={timestamp} />
       <ArticleContent>
