@@ -15,19 +15,19 @@ const useRelatedQueries = (keyword: string) => {
         queryKey: ['related', 'keywords', keyword],
         queryFn: () => getRelatedQuery('keywords', keyword),
         suspense: true,
-        enabled: keyword.length > 0,
+        enabled: keyword?.length > 0,
       },
       {
         queryKey: ['related', 'authors', keyword],
         queryFn: () => getRelatedQuery('authors', keyword),
         suspense: true,
-        enabled: keyword.length > 0,
+        enabled: keyword?.length > 0,
       },
       {
         queryKey: ['related', 'hashtags', keyword],
         queryFn: () => getRelatedQuery('hashtags', keyword),
         suspense: true,
-        enabled: keyword.length > 0,
+        enabled: keyword?.length > 0,
       },
     ],
   });

@@ -20,7 +20,7 @@ const SearchPopoverContent = ({ keyword }: Props) => {
           검색어
         </Text>
         <ContentSectionRows>
-          {keywords.length === 0 && <Text weight="semibold">관련 검색어가 없습니다.</Text>}
+          {keywords?.length === 0 && <Text weight="semibold">관련 검색어가 없습니다.</Text>}
           {keywords.map((keyword, idx) => (
             <Link key={idx} href={`/search?keyword=${keyword}`}>
               <Keyword>
@@ -38,7 +38,7 @@ const SearchPopoverContent = ({ keyword }: Props) => {
           작성자
         </Text>
         <ContentSectionRows>
-          {authors.length === 0 && <Text weight="semibold">관련 작성자가 없습니다.</Text>}
+          {authors?.length === 0 && <Text weight="semibold">관련 작성자가 없습니다.</Text>}
           {authors.map((author, idx) => (
             <Link key={idx} href={`/search?keyword=${author.name}`}>
               <AuthorBadge author={author} />
@@ -51,7 +51,7 @@ const SearchPopoverContent = ({ keyword }: Props) => {
           해시태그
         </Text>
         <ContentSectionRows>
-          {hashtags.length === 0 && <Text weight="semibold">관련 해시태그가 없습니다.</Text>}
+          {hashtags?.length === 0 && <Text weight="semibold">관련 해시태그가 없습니다.</Text>}
           {hashtags.map((hashtag, idx) => (
             <HashTagBadge key={idx} hashtag={hashtag} />
           ))}
