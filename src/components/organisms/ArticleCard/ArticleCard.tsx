@@ -20,7 +20,7 @@ interface Props {
 }
 
 const ArticleCard = forwardRef<HTMLAnchorElement, Props>(({ article }: Props, ref) => {
-  const { id, title, author, timestamp, summary, hashtags } = article;
+  const { id, title, author, timestamp, summary, hashtags, thumbnailUrl } = article;
 
   return (
     <ArticleCardWrapper
@@ -51,7 +51,15 @@ const ArticleCard = forwardRef<HTMLAnchorElement, Props>(({ article }: Props, re
           </Text>
         </ArticleContentTexts>
         <ArticleThumbnail>
-          <Image src="/thumbnail.png" alt="thumbnail" fill sizes="180px" />
+          <Image
+            src={thumbnailUrl === '' ? '/thumbnail.png' : thumbnailUrl}
+            alt="thumbnail"
+            fill
+            sizes="180px"
+            style={{
+              objectFit: 'cover',
+            }}
+          />
         </ArticleThumbnail>
       </ArticleContent>
       <BadgeWrapper>
