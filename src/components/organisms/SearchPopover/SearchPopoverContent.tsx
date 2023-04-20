@@ -4,16 +4,14 @@ import { Text, styled } from '@nextui-org/react';
 import { IconSearch } from '@tabler/icons-react';
 
 import { AuthorBadge, HashTagBadge } from '@/components';
-import { useSearchHintQuery } from '@/hooks/queries/searchs';
+import { useRelatedQueries } from '@/hooks/queries/searchs';
 
 interface Props {
   keyword: string;
 }
 
 const SearchPopoverContent = ({ keyword }: Props) => {
-  const {
-    result: { keywords, authors, hashtags },
-  } = useSearchHintQuery(keyword);
+  const { keywords, authors, hashtags } = useRelatedQueries(keyword);
 
   return (
     <ContentWrapper>
