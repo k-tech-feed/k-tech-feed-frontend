@@ -3,7 +3,6 @@ import { styled } from '@nextui-org/react';
 const ArticleCardWrapper = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'flex-start',
   gap: '12px',
   width: '100%',
   position: 'relative',
@@ -21,13 +20,20 @@ const ArticleCardWrapper = styled('div', {
 const BadgeWrapper = styled('div', {
   display: 'flex',
   gap: '8px',
+  overflow: 'scroll',
+  width: '300px',
+
+  '&::-webkit-scrollbar': {
+    display: 'none',
+  },
 });
 
 const ArticleContent = styled('a', {
   width: '100%',
   display: 'grid',
   gap: '24px',
-  gridTemplateColumns: '1fr 80px',
+  gridTemplateColumns: 'minmax(100px, max-content) 80px',
+
   '@sm': {
     gridTemplateColumns: '1fr 180px',
   },
