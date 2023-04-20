@@ -37,35 +37,35 @@ const useArticlesQuery = () => {
 };
 
 const getLatestArticles = async (
-  lastId: number,
+  afterId: number,
   size: number
-): Promise<{ data: Article[]; lastId: number; isLast: boolean }> => {
+): Promise<{ data: Article[]; afterId: number; isLast: boolean }> => {
   const { data } = await apiRequest.get<Article[]>('/articles', {
     params: {
       size,
-      lastId,
+      afterId,
     },
   });
 
   return {
     data,
-    lastId: data[data.length - 1]?.id,
+    afterId: data[data.length - 1]?.id,
     isLast: data.length < size,
   };
 };
 
 interface ArticlePagingData {
   data: Article[];
-  lastId: number;
+  afterId: number;
   isLast: boolean;
 }
 
 const useLatestArticlesQuery = () => {
   const { data, ...rest } = useInfiniteQuery<ArticlePagingData, AxiosError, ArticlePagingData>(
     ['articles', 'latest'],
-    ({ pageParam = 99999 }) => getLatestArticles(pageParam, 5),
+    ({ pageParam = 0 }) => getLatestArticles(pageParam, 5),
     {
-      getNextPageParam: (lastPage) => (!lastPage.isLast ? lastPage.lastId : undefined),
+      getNextPageParam: (lastPage) => (!lastPage.isLast ? lastPage.afterId : undefined),
       suspense: true,
     }
   );
