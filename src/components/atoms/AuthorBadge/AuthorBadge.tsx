@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { Text, styled } from '@nextui-org/react';
 
@@ -9,15 +10,17 @@ interface Props {
 }
 
 const AuthorBadge = ({ author }: Props) => {
-  const { name, logoUrl } = author;
+  const { id, name, logoUrl } = author;
 
   return (
-    <AuthorBadgeWrapper>
-      <CompanyImage src={logoUrl} alt="authorLogo" width={24} height={24} />
-      <Text size={14} weight="medium">
-        {name}
-      </Text>
-    </AuthorBadgeWrapper>
+    <Link href={`/author/${id}`}>
+      <AuthorBadgeWrapper>
+        <CompanyImage src={logoUrl} alt="authorLogo" width={24} height={24} />
+        <Text size={14} weight="medium">
+          {name}
+        </Text>
+      </AuthorBadgeWrapper>
+    </Link>
   );
 };
 
