@@ -25,4 +25,6 @@ interface SearchResult {
   hashtags: string[];
 }
 
-export type { Article, Author, HashTag, SearchResult };
+type Trend = 'weekly' | 'montly';
+
+export type { Article, Author, HashTag, SearchResult, Trend };

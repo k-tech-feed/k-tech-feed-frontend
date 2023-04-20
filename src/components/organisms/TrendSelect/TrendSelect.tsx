@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { useRecoilState } from 'recoil';
 
 import { Text, styled } from '@nextui-org/react';
 
 import { SegmentedControl } from '@/components';
+import { trendAtom } from '@/recoils/trendAtom';
+import { type Trend } from '@/types/data';
 
 const TrendSelect = () => {
-  const [selectedTrend, setSelectedTrend] = useState('Weekly');
+  const [selectedTrend, setSelectedTrend] = useRecoilState(trendAtom);
 
   return (
     <TrendSelectWrapper>
@@ -13,15 +15,15 @@ const TrendSelect = () => {
         트렌드
       </Text>
       <SegmentedControl>
-        {['Weekly', 'Monthly'].map((word, idx) => (
+        {['weekly', 'monthly'].map((word, idx) => (
           <SegmentedControl.Item
             key={idx}
             isSelected={selectedTrend === word}
             onClick={() => {
-              setSelectedTrend(word);
+              setSelectedTrend(word as Trend);
             }}
           >
-            <Text weight="semibold">{word}</Text>
+            <Text weight="semibold">{word.slice(0, 1).toUpperCase() + word.slice(1)}</Text>
           </SegmentedControl.Item>
         ))}
       </SegmentedControl>
