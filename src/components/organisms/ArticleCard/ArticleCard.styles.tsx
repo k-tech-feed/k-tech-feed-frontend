@@ -1,6 +1,6 @@
 import { styled } from '@nextui-org/react';
 
-const ArticleCardWrapper = styled('a', {
+const ArticleCardWrapper = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
@@ -23,7 +23,7 @@ const BadgeWrapper = styled('div', {
   gap: '8px',
 });
 
-const ArticleContent = styled('div', {
+const ArticleContent = styled('a', {
   width: '100%',
   display: 'grid',
   gap: '24px',
