@@ -2,9 +2,9 @@
 export { default as Logo } from './atoms/Logo/Logo';
 export { default as SearchInput } from './atoms/SearchInput/SearchInput';
 export { default as Badge } from './atoms/Badge/Badge';
+export { default as AuthorBadge } from './atoms/AuthorBadge/AuthorBadge';
 
 // molecules
-export { default as AuthorBadge } from './molecules/AuthorBadge/AuthorBadge';
 export { default as AuthorTimeBadge } from './molecules/AuthorTimeBadge/AuthorTimeBadge';
 export { default as SegmentedControl } from './molecules/SegmentedControl/SegmentedControl';
 

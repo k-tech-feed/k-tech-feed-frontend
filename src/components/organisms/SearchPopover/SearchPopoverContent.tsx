@@ -3,8 +3,7 @@ import Link from 'next/link';
 import { Text, styled } from '@nextui-org/react';
 import { IconSearch } from '@tabler/icons-react';
 
-import Badge from '@/components/atoms/Badge/Badge';
-import AuthorBadge from '@/components/molecules/AuthorBadge/AuthorBadge';
+import { AuthorBadge, Badge } from '@/components';
 import { useSearchHintQuery } from '@/hooks/queries/searchs';
 import { CategoryColor } from '@/utils/categoryColors';
 
