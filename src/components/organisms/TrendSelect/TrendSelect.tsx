@@ -1,4 +1,5 @@
-import { useRecoilState } from 'recoil';
+import { startTransition } from 'react';
+import { useRecoilState_TRANSITION_SUPPORT_UNSTABLE } from 'recoil';
 
 import { Text, styled } from '@nextui-org/react';
 
@@ -7,7 +8,13 @@ import { trendAtom } from '@/recoils/trendAtom';
 import { type Trend } from '@/types/data';
 
 const TrendSelect = () => {
-  const [selectedTrend, setSelectedTrend] = useRecoilState(trendAtom);
+  const [selectedTrend, setSelectedTrend] = useRecoilState_TRANSITION_SUPPORT_UNSTABLE(trendAtom);
+
+  const handleClickTrend = (word: Trend) => () => {
+    startTransition(() => {
+      setSelectedTrend(word);
+    });
+  };
 
   return (
     <TrendSelectWrapper>
@@ -19,9 +26,7 @@ const TrendSelect = () => {
           <SegmentedControl.Item
             key={idx}
             isSelected={selectedTrend === word}
-            onClick={() => {
-              setSelectedTrend(word as Trend);
-            }}
+            onClick={handleClickTrend(word as Trend)}
           >
             <Text weight="semibold">{word.slice(0, 1).toUpperCase() + word.slice(1)}</Text>
           </SegmentedControl.Item>

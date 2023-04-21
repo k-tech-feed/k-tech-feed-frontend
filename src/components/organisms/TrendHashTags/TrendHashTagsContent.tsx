@@ -1,4 +1,4 @@
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue_TRANSITION_SUPPORT_UNSTABLE } from 'recoil';
 
 import { styled } from '@nextui-org/react';
 
@@ -7,7 +7,7 @@ import { useTrendingHashtagsQuery } from '@/hooks/queries/trendings';
 import { trendAtom } from '@/recoils/trendAtom';
 
 const TrendHashTagsContent = () => {
-  const trendType = useRecoilValue(trendAtom);
+  const trendType = useRecoilValue_TRANSITION_SUPPORT_UNSTABLE(trendAtom);
   const { data: hashTags } = useTrendingHashtagsQuery({ type: trendType });
 
   return (

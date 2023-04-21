@@ -1,4 +1,4 @@
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue_TRANSITION_SUPPORT_UNSTABLE } from 'recoil';
 
 import { useTrendingArticlesQuery } from '@/hooks/queries/trendings';
 import { trendAtom } from '@/recoils/trendAtom';
@@ -10,7 +10,7 @@ interface Props {
 }
 
 const TrendArticlesContent = ({ isMobile }: Props) => {
-  const trendType = useRecoilValue(trendAtom);
+  const trendType = useRecoilValue_TRANSITION_SUPPORT_UNSTABLE(trendAtom);
   const { data: trends } = useTrendingArticlesQuery({ type: trendType });
   return (
     <div>
