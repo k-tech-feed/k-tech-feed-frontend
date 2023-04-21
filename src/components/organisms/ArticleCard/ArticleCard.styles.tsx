@@ -26,6 +26,10 @@ const BadgeWrapper = styled('div', {
   '&::-webkit-scrollbar': {
     display: 'none',
   },
+
+  '@md': {
+    width: '100%',
+  },
 });
 
 const ArticleContent = styled('a', {
