@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { forwardRef } from 'react';
 
 import { Text } from '@nextui-org/react';
@@ -13,6 +12,7 @@ import {
   ArticleThumbnail,
   BadgeWrapper,
 } from './ArticleCard.styles';
+import ArticleThumbnailImage from './ArticleThumbnailImage';
 
 interface Props {
   article: Article;
@@ -50,8 +50,8 @@ const ArticleCard = forwardRef<HTMLDivElement, Props>(({ article }: Props, ref) 
           </Text>
         </ArticleContentTexts>
         <ArticleThumbnail>
-          <Image
-            src={thumbnailUrl === '' ? '/thumbnail.png' : thumbnailUrl}
+          <ArticleThumbnailImage
+            src={thumbnailUrl}
             alt="thumbnail"
             fill
             sizes="180px"
