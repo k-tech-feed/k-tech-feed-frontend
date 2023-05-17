@@ -3,6 +3,8 @@ import { Children } from 'react';
 
 import { CssBaseline } from '@nextui-org/react';
 
+import GAScripts from '@/analytics/GAScripts';
+
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx);
@@ -16,6 +18,7 @@ class MyDocument extends Document {
     return (
       <Html lang="ko">
         <Head>{CssBaseline.flush()}</Head>
+        <GAScripts />
         <body>
           <Main />
           <NextScript />
