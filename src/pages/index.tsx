@@ -7,7 +7,7 @@ export default function Home() {
   const isDesktop = useMediaQuery({ query: '(min-width: 1280px)' });
 
   return (
-    <PageWrapper>
+    <PageWrapper as="main">
       {!isDesktop && <TrendSection />}
       <ArticleSection />
       {isDesktop && <TrendSection />}

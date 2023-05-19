@@ -6,7 +6,7 @@ import { TrendArticles, TrendHashTags, TrendSelect } from '@/components';
 const TrendSection = () => {
   const isDesktop = useMediaQuery({ query: '(min-width: 1280px)' });
   return (
-    <TrendSectionWrapper>
+    <TrendSectionWrapper as="aside">
       <TrendSelect />
       <TrendArticles isMobile={!isDesktop} />
       <TrendHashTags />

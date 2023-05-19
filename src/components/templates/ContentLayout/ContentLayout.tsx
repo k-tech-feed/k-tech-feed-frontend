@@ -12,8 +12,6 @@ export default ContentLayout;
 
 const ContentWrapper = styled('main', {
   height: '100%',
-  display: 'flex',
-  justifyContent: 'center',
   margin: '40px 32px',
   '@sm': {
     margin: '40px auto',

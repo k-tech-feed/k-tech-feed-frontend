@@ -8,7 +8,14 @@ import HeaderSerachInput from './HeaderSearchInput';
 
 const Header = () => {
   return (
-    <Navbar variant="sticky" css={{ zIndex: 1000 }} disableShadow maxWidth="fluid" isBordered>
+    <Navbar
+      variant="sticky"
+      css={{ zIndex: 1000 }}
+      disableShadow
+      maxWidth="fluid"
+      isBordered
+      as="header"
+    >
       <Navbar.Brand css={{ cursor: 'pointer' }}>
         <Link href="/">
           <Logo />
