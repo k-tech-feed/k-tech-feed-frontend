@@ -1,5 +1,3 @@
-import { forwardRef } from 'react';
-
 import { Text } from '@nextui-org/react';
 
 import { AuthorTimeBadge, HashTagBadge } from '@/components';
@@ -18,11 +16,11 @@ interface Props {
   article: Article;
 }
 
-const ArticleCard = forwardRef<HTMLDivElement, Props>(({ article }: Props, ref) => {
+const ArticleCard = ({ article }: Props) => {
   const { id, title, author, timestamp, summary, hashtags, thumbnailUrl } = article;
 
   return (
-    <ArticleCardWrapper ref={ref}>
+    <ArticleCardWrapper aria-label={title}>
       <AuthorTimeBadge author={author} timestamp={timestamp} />
       <ArticleContent
         href={`${process.env.NEXT_PUBLIC_API_URL as string}/articles/${id}`}
@@ -45,6 +43,7 @@ const ArticleCard = forwardRef<HTMLDivElement, Props>(({ article }: Props, ref) 
               '-webkit-line-clamp': 3,
               '-webkit-box-orient': 'vertical',
             }}
+            aria-hidden={true}
           >
             {summary}
           </Text>
@@ -52,7 +51,7 @@ const ArticleCard = forwardRef<HTMLDivElement, Props>(({ article }: Props, ref) 
         <ArticleThumbnail>
           <ArticleThumbnailImage
             src={thumbnailUrl}
-            alt="thumbnail"
+            alt=""
             fill
             sizes="180px"
             style={{
@@ -68,7 +67,7 @@ const ArticleCard = forwardRef<HTMLDivElement, Props>(({ article }: Props, ref) 
       </BadgeWrapper>
     </ArticleCardWrapper>
   );
-});
+};
 
 ArticleCard.displayName = 'ArticleCard';
 

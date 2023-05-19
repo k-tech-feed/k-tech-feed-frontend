@@ -1,6 +1,6 @@
 import { styled } from '@nextui-org/react';
 
-const ArticleCardWrapper = styled('div', {
+const ArticleCardWrapper = styled('li', {
   display: 'flex',
   flexDirection: 'column',
   gap: '12px',

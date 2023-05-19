@@ -38,21 +38,17 @@ const ArticleContentSection = () => {
   );
 
   return (
-    <div>
-      <div style={{ marginTop: '30px' }}>
-        {!articles ||
-          (articles.length === 0 && (
-            <Text size={24} weight="bold">
-              검색 결과가 존재하지 않습니다.
-            </Text>
-          ))}
-      </div>
+    <ul style={{ margin: '0' }}>
+      {(!articles || articles.length === 0) && (
+        <Text size={24} weight="bold">
+          검색 결과가 존재하지 않습니다.
+        </Text>
+      )}
       {articles?.map((article) => (
         <ArticleCard key={article.id} article={article} />
       ))}
-
       <div ref={ref}></div>
-    </div>
+    </ul>
   );
 };
 
