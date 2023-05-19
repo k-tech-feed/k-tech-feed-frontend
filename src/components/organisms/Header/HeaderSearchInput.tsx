@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 
 import { SearchInput } from '@/components';
@@ -11,10 +11,15 @@ const HeaderSerachInput = () => {
 
   const setFocused = useSetRecoilState(inputFocusAtom);
 
+  useEffect(() => {
+    if (ref.current) {
+      ref.current.value = input;
+    }
+  }, [input]);
+
   return (
     <SearchInput
       ref={ref}
-      value={input}
       aria-label="search"
       placeholder="검색"
       onChange={(e) => {

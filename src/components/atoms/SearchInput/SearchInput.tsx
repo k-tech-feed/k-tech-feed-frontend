@@ -6,14 +6,14 @@ import { IconSearch } from '@tabler/icons-react';
 interface Props {
   css?: CSS;
   placeholder: string;
-  value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
+  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
 const SearchInput = forwardRef<HTMLInputElement, Props>(
-  ({ onChange, onFocus = () => {}, onBlur = () => {}, ...rest }, ref) => {
+  ({ onChange, onFocus = () => {}, onBlur = () => {}, onKeyDown = () => {}, ...rest }, ref) => {
     return (
       <Input
         {...rest}
@@ -28,6 +28,9 @@ const SearchInput = forwardRef<HTMLInputElement, Props>(
         }}
         onBlur={(e: React.FocusEvent<FormElement>) => {
           onBlur(e as React.FocusEvent<HTMLInputElement>);
+        }}
+        onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+          onKeyDown(e);
         }}
         contentLeft={<IconSearch color="gray" />}
         css={{
