@@ -7,13 +7,14 @@ import { type Author } from '@/types/data';
 
 interface Props {
   author: Author;
+  onClick?: () => void;
 }
 
-const AuthorBadge = ({ author }: Props) => {
+const AuthorBadge = ({ author, onClick }: Props) => {
   const { id, name, logoUrl } = author;
 
   return (
-    <Link href={`/author/${id}`}>
+    <Link href={`/author/${id}`} onClick={onClick}>
       <AuthorBadgeWrapper>
         <CompanyImage src={logoUrl} alt="authorLogo" width={24} height={24} />
         <Text size={14} weight="medium">

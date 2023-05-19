@@ -5,11 +5,12 @@ import { CategoryColor } from '@/utils/categoryColors';
 
 interface Props {
   hashtag: string;
+  onClick?: () => void;
 }
 
-const HashTagBadge = ({ hashtag }: Props) => {
+const HashTagBadge = ({ hashtag, onClick }: Props) => {
   return (
-    <Link href={`/hashtag/${hashtag}`}>
+    <Link href={`/hashtag/${hashtag}`} onClick={onClick}>
       <Badge color={CategoryColor(hashtag)}># {hashtag}</Badge>
     </Link>
   );
