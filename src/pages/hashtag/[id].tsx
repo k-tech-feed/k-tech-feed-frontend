@@ -18,9 +18,8 @@ const PageWrapper = styled('div', {
   position: 'relative',
   height: '100%',
   flexDirection: 'column',
-  width: '680px',
+  width: '100%',
   '@md': {
-    width: '100%',
     flexDirection: 'row',
   },
 });

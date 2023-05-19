@@ -13,7 +13,7 @@ export default ContentLayout;
 const ContentWrapper = styled('main', {
   height: '100%',
   margin: '40px 32px',
-  '@sm': {
+  '@md': {
     margin: '40px auto',
   },
 });

@@ -7,7 +7,7 @@ export default function Home() {
   const isDesktop = useMediaQuery({ query: '(min-width: 1280px)' });
 
   return (
-    <PageWrapper as="main">
+    <PageWrapper>
       {!isDesktop && <TrendSection />}
       <ArticleSection />
       {isDesktop && <TrendSection />}
@@ -21,9 +21,8 @@ const PageWrapper = styled('div', {
   position: 'relative',
   height: '100%',
   flexDirection: 'column',
-  width: '680px',
+  width: '100%',
   '@md': {
-    width: '100%',
     flexDirection: 'row',
   },
 });
