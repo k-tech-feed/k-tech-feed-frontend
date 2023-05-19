@@ -17,11 +17,11 @@ const Header = () => {
       as="header"
     >
       <Navbar.Brand css={{ cursor: 'pointer' }}>
-        <Link href="/">
+        <Link href="/" aria-label="home으로 이동">
           <Logo />
         </Link>
       </Navbar.Brand>
-      <Navbar.Content css={{ alignSelf: 'center' }}>
+      <Navbar.Content css={{ alignSelf: 'center' }} as="div" role="searchbox">
         <HeaderSerachInput />
       </Navbar.Content>
       <Navbar.Brand css={{ cursor: 'pointer', visibility: 'hidden' }}>

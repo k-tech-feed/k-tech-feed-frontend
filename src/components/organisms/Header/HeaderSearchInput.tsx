@@ -20,8 +20,8 @@ const HeaderSerachInput = () => {
   return (
     <SearchInput
       ref={ref}
-      aria-label="search"
-      placeholder="검색"
+      ariaLabel="검색어 입력창"
+      placeholder="검색어를 입력해주세요."
       onChange={(e) => {
         setInput(e.target.value);
       }}
