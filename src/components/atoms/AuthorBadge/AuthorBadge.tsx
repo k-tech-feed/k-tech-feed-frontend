@@ -16,7 +16,7 @@ const AuthorBadge = ({ author, onClick }: Props) => {
   return (
     <Link href={`/author/${id}`} onClick={onClick}>
       <AuthorBadgeWrapper>
-        <CompanyImage src={logoUrl} alt="authorLogo" width={24} height={24} />
+        <CompanyImage src={logoUrl} alt="" width={24} height={24} />
         <Text size={14} weight="medium">
           {name}
         </Text>
