@@ -11,7 +11,7 @@ interface Props {
 const TrendArticles = ({ isMobile }: Props) => {
   return (
     <TrendArticlesWrapper>
-      <Text size={20} weight="bold">
+      <Text size={20} weight="semibold" as="h3" css={{ marginBottom: 0 }}>
         인기 아티클
       </Text>
       <Suspense

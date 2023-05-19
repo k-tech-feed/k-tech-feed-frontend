@@ -25,7 +25,7 @@ const TrendArticleItem = ({ title, author, timestamp, href }: Props) => {
 
 export default TrendArticleItem;
 
-const ItemWrapper = styled('div', {
+const ItemWrapper = styled('li', {
   display: 'flex',
   flexDirection: 'column',
   padding: '16px 0',
