@@ -1,17 +1,21 @@
-import { useRecoilValue } from 'recoil';
+import { useCallback } from 'react';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 
-import { useDebounce } from 'usehooks-ts';
-
-import { usePopoverOpen } from '@/recoils/atoms/popoverAtom';
-import { searchInputAtom } from '@/recoils/atoms/searchInputAtom';
+import { inputFocusAtom } from '@/recoils/atoms/inputFocusAtom';
+import { popoverOpenState } from '@/recoils/selectors/popoverSelector';
 
 const usePopover = () => {
-  const searchInput = useRecoilValue(searchInputAtom);
-  const debouncedSearchInput = useDebounce(searchInput, 200);
+  const isPopoverOpen = useRecoilValue(popoverOpenState);
+  const setInputFocus = useSetRecoilState(inputFocusAtom);
 
-  const isPopperOpen = usePopoverOpen(debouncedSearchInput.length > 0);
+  const closePopover = useCallback(() => {
+    setInputFocus(false);
+  }, [setInputFocus]);
 
-  return isPopperOpen;
+  return {
+    isPopoverOpen,
+    closePopover,
+  };
 };
 
 export default usePopover;

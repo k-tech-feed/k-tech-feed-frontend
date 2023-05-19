@@ -1,17 +1,32 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 import { Text, styled } from '@nextui-org/react';
 import { IconSearch } from '@tabler/icons-react';
 
 import { AuthorBadge, HashTagBadge } from '@/components';
 import { useRelatedQueries } from '@/hooks/queries/searchs';
+import usePopover from '@/hooks/utils/usePopover';
 
 interface Props {
   keyword: string;
 }
 
 const SearchPopoverContent = ({ keyword }: Props) => {
+  const router = useRouter();
   const { keywords, authors, hashtags } = useRelatedQueries(keyword);
+  const { closePopover } = usePopover();
+
+  useEffect(() => {
+    const handleClosePopover = () => {
+      closePopover();
+    };
+    router.events.on('routeChangeStart', handleClosePopover);
+    return () => {
+      router.events.off('routeChangeStart', handleClosePopover);
+    };
+  }, [router, closePopover]);
 
   return (
     <ContentWrapper>
@@ -22,13 +37,7 @@ const SearchPopoverContent = ({ keyword }: Props) => {
         <ContentSectionRows>
           {keywords?.length === 0 && <Text weight="semibold">관련 검색어가 없습니다.</Text>}
           {keywords?.map((keyword, idx) => (
-            <Link
-              key={idx}
-              href={`/keyword/${keyword}`}
-              onClick={() => {
-                console.log('hello');
-              }}
-            >
+            <Link key={idx} href={`/keyword/${keyword}`}>
               <Keyword>
                 <IconSearch color="gray" />
                 <Text size={16} weight="normal">

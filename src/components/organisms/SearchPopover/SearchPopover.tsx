@@ -1,21 +1,23 @@
 import { Suspense } from 'react';
-import { useRecoilState } from 'recoil';
+import { useRecoilValue_TRANSITION_SUPPORT_UNSTABLE } from 'recoil';
 
 import { Loading, styled } from '@nextui-org/react';
 import { useDebounce } from 'usehooks-ts';
 
 import useClickOutside from '@/hooks/utils/useClickOutside';
+import usePopover from '@/hooks/utils/usePopover';
 import { searchInputAtom } from '@/recoils/atoms/searchInputAtom';
 
 import SearchPopoverContent from './SearchPopoverContent';
 
 const SearchPopover = () => {
-  const [searchInput, setSearchInput] = useRecoilState(searchInputAtom);
+  const searchInput = useRecoilValue_TRANSITION_SUPPORT_UNSTABLE(searchInputAtom);
   const debouncedSearchInput = useDebounce(searchInput, 500);
+  const { closePopover } = usePopover();
 
   const ref = useClickOutside<HTMLDivElement>({
     onClickOutside: () => {
-      setSearchInput('');
+      closePopover();
     },
   });
 

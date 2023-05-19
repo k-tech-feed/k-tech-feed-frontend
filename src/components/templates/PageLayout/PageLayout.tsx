@@ -10,12 +10,12 @@ interface Props extends PropsWithChildren {
 }
 
 const PageLayout = ({ children, className }: Props) => {
-  const isPopperOpen = usePopover();
+  const { isPopoverOpen } = usePopover();
 
   return (
     <PageWrapper className={className}>
       <Header />
-      {isPopperOpen && <SearchPopover />}
+      {isPopoverOpen && <SearchPopover />}
       <ContentLayout>{children}</ContentLayout>
     </PageWrapper>
   );
