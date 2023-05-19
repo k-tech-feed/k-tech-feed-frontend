@@ -1,10 +1,13 @@
 import Link from 'next/link';
+import { useSetRecoilState } from 'recoil';
 
 import { Text, styled } from '@nextui-org/react';
 import { IconSearch } from '@tabler/icons-react';
 
 import { AuthorBadge, HashTagBadge } from '@/components';
 import { useRelatedQueries } from '@/hooks/queries/searchs';
+import usePopover from '@/hooks/utils/usePopover';
+import { searchInputAtom } from '@/recoils/atoms/searchInputAtom';
 
 interface Props {
   keyword: string;
@@ -12,6 +15,13 @@ interface Props {
 
 const SearchPopoverContent = ({ keyword }: Props) => {
   const { keywords, authors, hashtags } = useRelatedQueries(keyword);
+  const { closePopover } = usePopover();
+  const setInputValue = useSetRecoilState(searchInputAtom);
+
+  const handleClickSearchResult = (resultKeyword: string) => () => {
+    setInputValue(resultKeyword);
+    closePopover();
+  };
 
   return (
     <ContentWrapper>
@@ -22,7 +32,7 @@ const SearchPopoverContent = ({ keyword }: Props) => {
         <ContentSectionRows>
           {keywords?.length === 0 && <Text weight="semibold">관련 검색어가 없습니다.</Text>}
           {keywords?.map((keyword, idx) => (
-            <Link key={idx} href={`/keyword/${keyword}`}>
+            <Link key={idx} href={`/keyword/${keyword}`} onClick={handleClickSearchResult(keyword)}>
               <Keyword>
                 <IconSearch color="gray" />
                 <Text size={16} weight="normal">
@@ -40,9 +50,7 @@ const SearchPopoverContent = ({ keyword }: Props) => {
         <ContentSectionRows>
           {authors?.length === 0 && <Text weight="semibold">관련 작성자가 없습니다.</Text>}
           {authors?.map((author, idx) => (
-            <Link key={idx} href={`/author/${author.id}`}>
-              <AuthorBadge author={author} />
-            </Link>
+            <AuthorBadge key={idx} author={author} onClick={handleClickSearchResult(author.name)} />
           ))}
         </ContentSectionRows>
       </ContentSection>
@@ -53,7 +61,7 @@ const SearchPopoverContent = ({ keyword }: Props) => {
         <ContentSectionRows>
           {hashtags?.length === 0 && <Text weight="semibold">관련 해시태그가 없습니다.</Text>}
           {hashtags?.map((hashtag, idx) => (
-            <HashTagBadge key={idx} hashtag={hashtag} />
+            <HashTagBadge key={idx} hashtag={hashtag} onClick={handleClickSearchResult(hashtag)} />
           ))}
         </ContentSectionRows>
       </ContentSection>

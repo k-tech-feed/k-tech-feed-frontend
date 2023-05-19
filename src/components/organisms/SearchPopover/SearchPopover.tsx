@@ -1,36 +1,25 @@
-import { useRouter } from 'next/router';
-import { Suspense, useEffect } from 'react';
-import { useRecoilState } from 'recoil';
+import { Suspense } from 'react';
+import { useRecoilValue_TRANSITION_SUPPORT_UNSTABLE } from 'recoil';
 
 import { Loading, styled } from '@nextui-org/react';
 import { useDebounce } from 'usehooks-ts';
 
 import useClickOutside from '@/hooks/utils/useClickOutside';
-import { searchInputAtom } from '@/recoils/searchInputAtom';
+import usePopover from '@/hooks/utils/usePopover';
+import { searchInputAtom } from '@/recoils/atoms/searchInputAtom';
 
 import SearchPopoverContent from './SearchPopoverContent';
 
 const SearchPopover = () => {
-  const router = useRouter();
-  const [searchInput, setSearchInput] = useRecoilState(searchInputAtom);
+  const searchInput = useRecoilValue_TRANSITION_SUPPORT_UNSTABLE(searchInputAtom);
   const debouncedSearchInput = useDebounce(searchInput, 500);
+  const { closePopover } = usePopover();
 
   const ref = useClickOutside<HTMLDivElement>({
     onClickOutside: () => {
-      setSearchInput('');
+      closePopover();
     },
   });
-
-  useEffect(() => {
-    const handleRouterChange = () => {
-      setSearchInput('');
-    };
-
-    router.events.on('routeChangeStart', handleRouterChange);
-    return () => {
-      router.events.off('routeChangeStart', handleRouterChange);
-    };
-  }, [router, setSearchInput]);
 
   return (
     <PopoverBackground>
