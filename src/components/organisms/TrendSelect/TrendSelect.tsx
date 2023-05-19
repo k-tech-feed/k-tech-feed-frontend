@@ -4,7 +4,7 @@ import { useRecoilState_TRANSITION_SUPPORT_UNSTABLE } from 'recoil';
 import { Text, styled } from '@nextui-org/react';
 
 import { SegmentedControl } from '@/components';
-import { trendAtom } from '@/recoils/trendAtom';
+import { trendAtom } from '@/recoils/atoms/trendAtom';
 import { type Trend } from '@/types/data';
 
 const TrendSelect = () => {

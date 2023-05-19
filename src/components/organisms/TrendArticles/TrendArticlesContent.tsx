@@ -1,7 +1,7 @@
 import { useRecoilValue_TRANSITION_SUPPORT_UNSTABLE } from 'recoil';
 
 import { useTrendingArticlesQuery } from '@/hooks/queries/trendings';
-import { trendAtom } from '@/recoils/trendAtom';
+import { trendAtom } from '@/recoils/atoms/trendAtom';
 
 import TrendArticleItem from './item/TrendArticleItem';
 

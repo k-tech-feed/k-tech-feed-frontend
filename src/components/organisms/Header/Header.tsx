@@ -5,7 +5,7 @@ import { useRecoilState } from 'recoil';
 import { Navbar } from '@nextui-org/react';
 
 import { Logo, SearchInput } from '@/components';
-import { searchInputAtom } from '@/recoils/searchInputAtom';
+import { searchInputAtom } from '@/recoils/atoms/searchInputAtom';
 
 const Header = () => {
   const [input, setInput] = useRecoilState(searchInputAtom);

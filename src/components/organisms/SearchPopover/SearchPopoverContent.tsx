@@ -22,7 +22,13 @@ const SearchPopoverContent = ({ keyword }: Props) => {
         <ContentSectionRows>
           {keywords?.length === 0 && <Text weight="semibold">관련 검색어가 없습니다.</Text>}
           {keywords?.map((keyword, idx) => (
-            <Link key={idx} href={`/keyword/${keyword}`}>
+            <Link
+              key={idx}
+              href={`/keyword/${keyword}`}
+              onClick={() => {
+                console.log('hello');
+              }}
+            >
               <Keyword>
                 <IconSearch color="gray" />
                 <Text size={16} weight="normal">
@@ -40,9 +46,7 @@ const SearchPopoverContent = ({ keyword }: Props) => {
         <ContentSectionRows>
           {authors?.length === 0 && <Text weight="semibold">관련 작성자가 없습니다.</Text>}
           {authors?.map((author, idx) => (
-            <Link key={idx} href={`/author/${author.id}`}>
-              <AuthorBadge author={author} />
-            </Link>
+            <AuthorBadge key={idx} author={author} />
           ))}
         </ContentSectionRows>
       </ContentSection>

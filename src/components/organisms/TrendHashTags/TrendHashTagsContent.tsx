@@ -4,7 +4,7 @@ import { styled } from '@nextui-org/react';
 
 import { HashTagBadge } from '@/components';
 import { useTrendingHashtagsQuery } from '@/hooks/queries/trendings';
-import { trendAtom } from '@/recoils/trendAtom';
+import { trendAtom } from '@/recoils/atoms/trendAtom';
 
 const TrendHashTagsContent = () => {
   const trendType = useRecoilValue_TRANSITION_SUPPORT_UNSTABLE(trendAtom);
