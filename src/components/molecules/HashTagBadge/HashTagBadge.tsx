@@ -10,7 +10,7 @@ interface Props {
 
 const HashTagBadge = ({ hashtag, onClick }: Props) => {
   return (
-    <Link href={`/hashtag/${hashtag}`} onClick={onClick}>
+    <Link href={`/hashtag/${hashtag}`} onClick={onClick} aria-label={hashtag}>
       <Badge color={CategoryColor(hashtag)}># {hashtag}</Badge>
     </Link>
   );

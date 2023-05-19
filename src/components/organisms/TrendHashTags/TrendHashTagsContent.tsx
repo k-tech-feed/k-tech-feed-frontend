@@ -11,7 +11,7 @@ const TrendHashTagsContent = () => {
   const { data: hashTags } = useTrendingHashtagsQuery({ type: trendType });
 
   return (
-    <ContentWrapper>
+    <ContentWrapper role="none">
       {hashTags?.slice(0, 6).map((hashTag, idx) => (
         <HashTagBadge hashtag={hashTag} key={idx} />
       ))}
