@@ -62,7 +62,7 @@ const ArticleCard = ({ article }: Props) => {
       </ArticleContent>
       <BadgeWrapper>
         {hashtags.map((hashtag, idx) => (
-          <HashTagBadge hashtag={hashtag} key={idx} />
+          <HashTagBadge hashtag={hashtag} key={idx} aria-label={`해시태그 ${hashtag}`} />
         ))}
       </BadgeWrapper>
     </ArticleCardWrapper>

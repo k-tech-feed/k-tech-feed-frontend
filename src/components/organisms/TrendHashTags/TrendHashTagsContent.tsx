@@ -13,7 +13,7 @@ const TrendHashTagsContent = () => {
   return (
     <ContentWrapper role="none">
       {hashTags?.slice(0, 6).map((hashTag, idx) => (
-        <HashTagBadge hashtag={hashTag} key={idx} />
+        <HashTagBadge hashtag={hashTag} key={idx} aria-label={`해시태그 ${hashTag}`} />
       ))}
     </ContentWrapper>
   );

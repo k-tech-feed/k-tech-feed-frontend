@@ -15,7 +15,7 @@ interface Props {
 
 const SearchPopoverContent = ({ keyword }: Props) => {
   const { keywords, authors, hashtags } = useRelatedQueries(keyword);
-  const { closePopover } = usePopover();
+  const { isPopoverOpen, closePopover } = usePopover();
   const setInputValue = useSetRecoilState(searchInputAtom);
 
   const handleClickSearchResult = (resultKeyword: string) => () => {
@@ -24,7 +24,7 @@ const SearchPopoverContent = ({ keyword }: Props) => {
   };
 
   return (
-    <ContentWrapper>
+    <ContentWrapper role="dialog" aria-modal={isPopoverOpen}>
       <ContentSection>
         <Text size={20} weight="bold">
           검색어
@@ -32,7 +32,12 @@ const SearchPopoverContent = ({ keyword }: Props) => {
         <ContentSectionRows>
           {keywords?.length === 0 && <Text weight="semibold">관련 검색어가 없습니다.</Text>}
           {keywords?.map((keyword, idx) => (
-            <Link key={idx} href={`/keyword/${keyword}`} onClick={handleClickSearchResult(keyword)}>
+            <Link
+              key={idx}
+              aria-label={`검색어 ${keyword}`}
+              href={`/keyword/${keyword}`}
+              onClick={handleClickSearchResult(keyword)}
+            >
               <Keyword>
                 <IconSearch color="gray" />
                 <Text size={16} weight="normal">
@@ -50,7 +55,12 @@ const SearchPopoverContent = ({ keyword }: Props) => {
         <ContentSectionRows>
           {authors?.length === 0 && <Text weight="semibold">관련 작성자가 없습니다.</Text>}
           {authors?.map((author, idx) => (
-            <AuthorBadge key={idx} author={author} onClick={handleClickSearchResult(author.name)} />
+            <AuthorBadge
+              key={idx}
+              aria-label={`작성자 ${keyword}`}
+              author={author}
+              onClick={handleClickSearchResult(author.name)}
+            />
           ))}
         </ContentSectionRows>
       </ContentSection>
@@ -61,7 +71,12 @@ const SearchPopoverContent = ({ keyword }: Props) => {
         <ContentSectionRows>
           {hashtags?.length === 0 && <Text weight="semibold">관련 해시태그가 없습니다.</Text>}
           {hashtags?.map((hashtag, idx) => (
-            <HashTagBadge key={idx} hashtag={hashtag} onClick={handleClickSearchResult(hashtag)} />
+            <HashTagBadge
+              key={idx}
+              aria-label={`해시태그 ${hashtag}`}
+              hashtag={hashtag}
+              onClick={handleClickSearchResult(hashtag)}
+            />
           ))}
         </ContentSectionRows>
       </ContentSection>
