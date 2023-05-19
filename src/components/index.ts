@@ -24,3 +24,4 @@ export { default as ArticleSection } from './templates/ArticleSection/ArticleSec
 export { default as ArticleLoading } from './templates/ArticleLoading/ArticleLoading';
 export { default as ArticleContentSection } from './templates/ArticleContentSection/ArticleContentSection';
 export { default as TrendSection } from './templates/TrendSection/TrendSection';
+export { default as PopoverArea } from './templates/PopoverArea/PopoverArea';
