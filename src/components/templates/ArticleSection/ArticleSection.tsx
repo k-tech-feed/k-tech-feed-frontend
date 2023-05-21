@@ -18,7 +18,7 @@ const ArticeSection = () => {
 
   return (
     <ArticleSectionWrapper>
-      <Text as="h1" size={32} weight="semibold">
+      <Text as="h1" size={32} weight="semibold" tabIndex={0}>
         {pathname === '/' && '최신 아티클'}
         {pathname.includes('/keyword') && `${(id as string) ?? '아티클'} 에 대한 검색 결과 `}
         {pathname.includes('/author') && `${author?.name ?? '아티클'} 에 대한 검색 결과 `}
@@ -33,7 +33,7 @@ const ArticeSection = () => {
 
 export default ArticeSection;
 
-const ArticleSectionWrapper = styled('div', {
+const ArticleSectionWrapper = styled('article', {
   position: 'relative',
   width: '100%',
 });

@@ -7,7 +7,7 @@ import TrendHashTagsContent from './TrendHashTagsContent';
 const TrendHashTags = () => {
   return (
     <TrendHashTagsWrapper>
-      <Text size={20} weight="semibold" as="h3" css={{ marginBottom: 0 }}>
+      <Text size={20} weight="semibold" as="h3" css={{ marginBottom: 0 }} tabIndex={0}>
         인기 해시태그
       </Text>
       <Suspense
