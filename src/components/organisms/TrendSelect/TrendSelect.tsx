@@ -18,15 +18,24 @@ const TrendSelect = () => {
 
   return (
     <TrendSelectWrapper>
-      <Text size={24} weight="bold" css={{ whiteSpace: 'nowrap' }}>
+      <Text
+        size={24}
+        weight="semibold"
+        css={{ whiteSpace: 'nowrap', marginBottom: 0 }}
+        as="h2"
+        tabIndex={0}
+      >
         트렌드
       </Text>
-      <SegmentedControl>
+      <SegmentedControl role="tablist">
         {['weekly', 'monthly'].map((word, idx) => (
           <SegmentedControl.Item
             key={idx}
             isSelected={selectedTrend === word}
             onClick={handleClickTrend(word as Trend)}
+            role="tab"
+            aria-selected={selectedTrend === word}
+            tabIndex={0}
           >
             <Text weight="semibold">{word.slice(0, 1).toUpperCase() + word.slice(1)}</Text>
           </SegmentedControl.Item>

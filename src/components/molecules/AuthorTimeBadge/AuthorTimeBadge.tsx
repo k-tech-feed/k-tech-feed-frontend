@@ -9,11 +9,12 @@ interface Props extends Pick<Article, 'timestamp'> {
 }
 
 const AuthorTimeBadge = ({ author, timestamp }: Props) => {
+  const agoDateTime = dateTimeFormat(timestamp);
   return (
     <AuthorTimestampWrapper>
       <AuthorBadge author={author} />
-      <Text size={14} color="$gray800">
-        &nbsp;· {dateTimeFormat(timestamp)}
+      <Text size={14} color="$gray800" tabIndex={0} aria-label={`${agoDateTime}에 작성됨`}>
+        &nbsp;· {agoDateTime}
       </Text>
     </AuthorTimestampWrapper>
   );

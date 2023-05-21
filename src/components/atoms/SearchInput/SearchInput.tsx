@@ -5,18 +5,25 @@ import { IconSearch } from '@tabler/icons-react';
 
 interface Props {
   css?: CSS;
+
   placeholder: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
   onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  ariaLabel?: string;
 }
 
 const SearchInput = forwardRef<HTMLInputElement, Props>(
-  ({ onChange, onFocus = () => {}, onBlur = () => {}, onKeyDown = () => {}, ...rest }, ref) => {
+  (
+    { onChange, onFocus = () => {}, onBlur = () => {}, onKeyDown = () => {}, ariaLabel, ...rest },
+    ref
+  ) => {
     return (
       <Input
         {...rest}
+        id="search-input"
+        aria-label={ariaLabel}
         ref={ref}
         clearable
         size="lg"

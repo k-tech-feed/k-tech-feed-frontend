@@ -9,7 +9,7 @@ interface Props {
 const Logo = (props: Props) => {
   return (
     <LogoWrapper {...props}>
-      <Image src="/logo.svg" alt="k-tech-feed" width={32} height={32} />
+      <Image src="/logo.svg" alt="" width={32} height={32} />
       <LogoText hideIn="sm">K_TECH_FEED</LogoText>
     </LogoWrapper>
   );

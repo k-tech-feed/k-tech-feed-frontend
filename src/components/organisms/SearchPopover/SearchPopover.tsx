@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import { useRecoilValue_TRANSITION_SUPPORT_UNSTABLE } from 'recoil';
 
 import { Loading, styled } from '@nextui-org/react';
@@ -21,9 +21,22 @@ const SearchPopover = () => {
     },
   });
 
+  useEffect(() => {
+    const handleKeyDownEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        closePopover();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDownEsc);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDownEsc);
+    };
+  }, [closePopover]);
+
   return (
     <PopoverBackground>
-      <PopoverWrapper ref={ref}>
+      <PopoverWrapper ref={ref} role="dialog">
         <Suspense
           fallback={
             <Loading

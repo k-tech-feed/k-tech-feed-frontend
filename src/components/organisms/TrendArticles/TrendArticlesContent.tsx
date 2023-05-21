@@ -13,7 +13,7 @@ const TrendArticlesContent = ({ isMobile }: Props) => {
   const trendType = useRecoilValue_TRANSITION_SUPPORT_UNSTABLE(trendAtom);
   const { data: trends } = useTrendingArticlesQuery({ type: trendType });
   return (
-    <div>
+    <ul style={{ margin: 0 }}>
       {trends?.slice(0, isMobile ? 1 : 3).map(({ id, title, author, timestamp }, idx) => (
         <TrendArticleItem
           key={idx}
@@ -23,7 +23,7 @@ const TrendArticlesContent = ({ isMobile }: Props) => {
           timestamp={timestamp}
         />
       ))}
-    </div>
+    </ul>
   );
 };
 
