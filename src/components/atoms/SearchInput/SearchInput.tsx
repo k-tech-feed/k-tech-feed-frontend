@@ -5,6 +5,7 @@ import { IconSearch } from '@tabler/icons-react';
 
 interface Props {
   css?: CSS;
+
   placeholder: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
@@ -21,6 +22,7 @@ const SearchInput = forwardRef<HTMLInputElement, Props>(
     return (
       <Input
         {...rest}
+        id="search-input"
         aria-label={ariaLabel}
         ref={ref}
         clearable
